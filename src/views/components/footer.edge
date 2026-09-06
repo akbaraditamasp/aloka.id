@@ -1,0 +1,75 @@
+<footer class="bg-ink text-white/70">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-6 gap-10">
+      <div class="sm:col-span-2 lg:col-span-2">
+        <a href="/" class="flex items-center gap-2">
+          {{-- STYLE.md §2: a plain monochrome mark is used when the gradient doesn't reproduce well —
+               here it blends into the navy footer background, so render it plain white via filter
+               instead of needing a separate asset. --}}
+          <img src="{{ vite.static('logo.png') }}" alt="" class="h-8 w-8" style="filter: brightness(0) invert(1);" />
+          <span class="font-display font-bold text-white text-xl">aloka</span>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed max-w-xs">
+          Platform digital konsultan &amp; edukasi perkoperasian — menemani koperasi Anda menuju legal, sehat keuangan, dan bankable.
+        </p>
+        <div class="mt-6 flex flex-col gap-2.5 text-sm">
+          <a href="https://wa.me/6281234567890" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+            <span class="icon-[tabler--brand-whatsapp] size-4"></span>
+            +62 812-3456-7890
+          </a>
+          <a href="mailto:halo@aloka.id" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+            <span class="icon-[tabler--mail] size-4"></span>
+            halo@aloka.id
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-display font-semibold text-white text-sm">Akademi</p>
+        <div class="mt-4 flex flex-col gap-2.5 text-sm">
+          <a href="/akademi/kelas-online" class="hover:text-white transition-colors">Kelas Online</a>
+          <a href="/akademi/sertifikasi" class="hover:text-white transition-colors">Sertifikasi</a>
+          <a href="/akademi/webinar" class="hover:text-white transition-colors">Webinar</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-display font-semibold text-white text-sm">Konsultasi</p>
+        <div class="mt-4 flex flex-col gap-2.5 text-sm">
+          <a href="/konsultasi/online" class="hover:text-white transition-colors">Konsultasi Online</a>
+          <a href="/konsultasi/panggil-pelatih" class="hover:text-white transition-colors">Panggil Pelatih</a>
+          <a href="/konsultasi/laporan-keuangan" class="hover:text-white transition-colors">Laporan Keuangan Koperasi</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-display font-semibold text-white text-sm">Legalitas &amp; Pembiayaan</p>
+        <div class="mt-4 flex flex-col gap-2.5 text-sm">
+          <a href="/legalitas/pendirian" class="hover:text-white transition-colors">Pendirian Koperasi</a>
+          <a href="/legalitas/izin-operasional" class="hover:text-white transition-colors">Izin Operasional KSP/USP</a>
+          <a href="/legalitas/pembiayaan" class="hover:text-white transition-colors">Akses Pembiayaan</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-display font-semibold text-white text-sm">Perusahaan</p>
+        <div class="mt-4 flex flex-col gap-2.5 text-sm">
+          <a href="/fasilitator" class="hover:text-white transition-colors">Fasilitator</a>
+          <a href="/event" class="hover:text-white transition-colors">Event</a>
+          <a href="/tentang" class="hover:text-white transition-colors">Tentang Aloka</a>
+          <a href="/kontak" class="hover:text-white transition-colors">Kontak</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <p>© {{ new Date().getFullYear() }} Aloka. Seluruh hak cipta dilindungi.</p>
+      <div class="flex items-center gap-4">
+        <a href="/masuk" class="hover:text-white transition-colors">Masuk</a>
+        <a href="/daftar" class="hover:text-white transition-colors">Daftar Sekarang</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,12 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pilarBlobGradient" x1="480" y1="0" x2="120" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00ADEE"/>
+      <stop offset="45%" stop-color="#1369A9"/>
+      <stop offset="75%" stop-color="#1D4282"/>
+      <stop offset="100%" stop-color="#242A6A"/>
+    </linearGradient>
+  </defs>
+  <circle cx="400" cy="60" r="230" fill="url(#pilarBlobGradient)" opacity="0.1"/>
+  <circle cx="460" cy="170" r="150" fill="url(#pilarBlobGradient)" opacity="0.12"/>
+</svg>

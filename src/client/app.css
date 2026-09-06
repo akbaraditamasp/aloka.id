@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+@import "tailwindcss";
+@plugin "@iconify/tailwind4";
+@source "../views/**/*.edge";
+
+[x-cloak] {
+  display: none !important;
+}
+
+@theme {
+  /* Brand gradient — each stop is a full tailwind-style tint(50-400)/base(500)/shade(600-950) ramp.
+     500 = the exact hex sampled from the logo (see STYLE.md §3.1); bare `brand-*` aliases to 500
+     so `bg-brand-navy` keeps working alongside `bg-brand-navy-100` etc. */
+  --color-brand-sky-50: #f2fbfe;
+  --color-brand-sky-100: #e6f7fd;
+  --color-brand-sky-200: #bfebfb;
+  --color-brand-sky-300: #99def8;
+  --color-brand-sky-400: #4dc6f3;
+  --color-brand-sky-500: #00adee;
+  --color-brand-sky-600: #0093ca;
+  --color-brand-sky-700: #0079a7;
+  --color-brand-sky-800: #005f83;
+  --color-brand-sky-900: #00455f;
+  --color-brand-sky-950: #002b3c;
+  --color-brand-sky: var(--color-brand-sky-500);
+
+  --color-brand-blue-50: #f3f8fb;
+  --color-brand-blue-100: #e7f0f6;
+  --color-brand-blue-200: #c4daea;
+  --color-brand-blue-300: #a1c3dd;
+  --color-brand-blue-400: #5a96c3;
+  --color-brand-blue-500: #1369a9;
+  --color-brand-blue-600: #105990;
+  --color-brand-blue-700: #0d4a76;
+  --color-brand-blue-800: #0a3a5d;
+  --color-brand-blue-900: #082a44;
+  --color-brand-blue-950: #051a2a;
+  --color-brand-blue: var(--color-brand-blue-500);
+
+  --color-brand-indigo-50: #f4f6f9;
+  --color-brand-indigo-100: #e8ecf3;
+  --color-brand-indigo-200: #c7d0e0;
+  --color-brand-indigo-300: #a5b3cd;
+  --color-brand-indigo-400: #617ba8;
+  --color-brand-indigo-500: #1d4282;
+  --color-brand-indigo-600: #19386f;
+  --color-brand-indigo-700: #142e5b;
+  --color-brand-indigo-800: #102448;
+  --color-brand-indigo-900: #0c1a34;
+  --color-brand-indigo-950: #071121;
+  --color-brand-indigo: var(--color-brand-indigo-500);
+
+  --color-brand-navy-50: #f4f4f8;
+  --color-brand-navy-100: #e9eaf0;
+  --color-brand-navy-200: #c8cada;
+  --color-brand-navy-300: #a7aac3;
+  --color-brand-navy-400: #666a97;
+  --color-brand-navy-500: #242a6a;
+  --color-brand-navy-600: #1f245a;
+  --color-brand-navy-700: #191d4a;
+  --color-brand-navy-800: #14173a;
+  --color-brand-navy-900: #0e112a;
+  --color-brand-navy-950: #090b1b;
+  --color-brand-navy: var(--color-brand-navy-500);
+
+  /* Warm accent (CTA & growth) */
+  --color-accent-amber-50: #fffbf4;
+  --color-accent-amber-100: #fef6e9;
+  --color-accent-amber-200: #fde9c8;
+  --color-accent-amber-300: #fbdba7;
+  --color-accent-amber-400: #f8c066;
+  --color-accent-amber-500: #f5a524;
+  --color-accent-amber-600: #d08c1f;
+  --color-accent-amber-700: #ac7319;
+  --color-accent-amber-800: #875b14;
+  --color-accent-amber-900: #62420e;
+  --color-accent-amber-950: #3d2909;
+  --color-accent-amber: var(--color-accent-amber-500);
+  /* documented hover value from STYLE.md §3.3 — kept exact rather than the generated -600 */
+  --color-accent-amber-dark: #c97f0e;
+
+  /* Neutral — fixed aliases per STYLE.md §3.2 (full gray scale already covered by Tailwind's
+     built-in slate-50..950, which these values are sampled from) */
+  --color-ink: #0f172a;
+  --color-ink-muted: #475569;
+  --color-border: #e2e8f0;
+  --color-surface: #f8fafc;
+  --color-surface-white: #ffffff;
+
+  /* Semantic status */
+  --color-success-50: #f3faf6;
+  --color-success-100: #e8f6ed;
+  --color-success-200: #c5e8d2;
+  --color-success-300: #a2dab7;
+  --color-success-400: #5cbf80;
+  --color-success-500: #16a34a;
+  --color-success-600: #138b3f;
+  --color-success-700: #0f7234;
+  --color-success-800: #0c5a29;
+  --color-success-900: #09411e;
+  --color-success-950: #062913;
+  --color-success: var(--color-success-500);
+
+  --color-warning-50: #fdf8f3;
+  --color-warning-100: #fbf1e6;
+  --color-warning-200: #f6ddc1;
+  --color-warning-300: #f0c99b;
+  --color-warning-400: #e4a051;
+  --color-warning-500: #d97706;
+  --color-warning-600: #b86505;
+  --color-warning-700: #985304;
+  --color-warning-800: #774103;
+  --color-warning-900: #573002;
+  --color-warning-950: #361e02;
+  --color-warning: var(--color-warning-500);
+
+  --color-danger-50: #fdf4f4;
+  --color-danger-100: #fce9e9;
+  --color-danger-200: #f6c9c9;
+  --color-danger-300: #f1a8a8;
+  --color-danger-400: #e76767;
+  --color-danger-500: #dc2626;
+  --color-danger-600: #bb2020;
+  --color-danger-700: #9a1b1b;
+  --color-danger-800: #791515;
+  --color-danger-900: #580f0f;
+  --color-danger-950: #370a0a;
+  --color-danger: var(--color-danger-500);
+
+  /* Fonts */
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}

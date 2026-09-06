@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{{ await $slots.title?.() ?? 'Aloka — Koperasi Naik Kelas, Bareng Aloka' }}}</title>
+  {{{ await vite.asset('src/client/app.css') }}}
+  {{{ await vite.asset('src/client/main.ts') }}}
+</head>
+<body class="relative bg-surface-white text-ink font-sans antialiased">
+  <img src="{{ vite.static('ornament-corner-lines.svg') }}" alt="" class="pointer-events-none select-none absolute top-0 left-0 w-56 md:w-72 -z-10" />
+  @include('components/header')
+  {{{ await $slots.main() }}}
+  @include('components/footer')
+</body>
+</html>

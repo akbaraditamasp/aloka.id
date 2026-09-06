@@ -250,7 +250,10 @@
             </div>
           </a>
 
-          <div class="md:col-span-6 grid grid-cols-2 md:grid-cols-1 gap-6">
+          {{-- Mobile: cards stack full-width (flex-col), not a 2-column grid — squeezing these into
+               half-width columns left no room for the meta row (level + duration + arrow), so the
+               arrow wrapped onto its own line. Desktop stack (md:grid-cols-1) unchanged. --}}
+          <div class="md:col-span-6 flex flex-col md:grid md:grid-cols-1 gap-6">
             <a href="/akademi/kelas-online/akuntansi-laporan-keuangan-koperasi" class="group relative overflow-hidden flex flex-col rounded-2xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
               {{-- Photo fades in only at the top-right corner via a radial mask, then dissolves to
                    transparent toward the bottom-left — a thin accent, not a full photo background. --}}
@@ -261,7 +264,7 @@
                 </span>
                 <span class="rounded-full bg-surface px-3 py-1 text-xs font-semibold text-brand-blue">Akademi</span>
               </div>
-              <h3 class="relative mt-auto font-display font-semibold text-lg text-ink">Akuntansi &amp; Laporan Keuangan Koperasi</h3>
+              <h3 class="relative mt-3 md:mt-auto font-display font-semibold text-lg text-ink">Akuntansi &amp; Laporan Keuangan Koperasi</h3>
               <p class="relative mt-2 text-sm leading-relaxed text-ink-muted">
                 Susun neraca, laporan rugi-laba, dan perhitungan SHU koperasi Anda dengan benar dan bisa diaudit.
               </p>
@@ -285,7 +288,7 @@
                 </span>
                 <span class="rounded-full bg-surface px-3 py-1 text-xs font-semibold text-brand-blue">Akademi</span>
               </div>
-              <h3 class="relative mt-auto font-display font-semibold text-lg text-ink">Tata Kelola &amp; SHU Koperasi</h3>
+              <h3 class="relative mt-3 md:mt-auto font-display font-semibold text-lg text-ink">Tata Kelola &amp; SHU Koperasi</h3>
               <p class="relative mt-2 text-sm leading-relaxed text-ink-muted">
                 Pahami peran pengurus, pengawas, dan anggota, serta cara pembagian SHU yang adil dan transparan.
               </p>

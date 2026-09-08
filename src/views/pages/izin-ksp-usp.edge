@@ -1,0 +1,236 @@
+@component('layouts/main', { request })
+  @slot('title')
+    Izin Koperasi Simpan Pinjam / Unit Simpan Pinjam | Aloka
+  @end
+
+  @slot('main')
+    <section class="pt-10 md:pt-16 pb-16 md:pb-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">Izin KSP/USP</span>
+        </nav>
+
+        <div class="mt-8 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Izin KSP/USP</span>
+            <h1 class="mt-4 font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight text-brand-navy">
+              Izin Operasional Simpan Pinjam, Lengkap Syarat Kelayakannya
+            </h1>
+            <p class="mt-6 text-lg leading-relaxed text-ink-muted max-w-xl">
+              Uji Kepatutan dan Kelayakan pengurus &amp; pengawas, SLIK OJK/BI Checking, sampai surat keterangan tidak pailit — Aloka mendampingi seluruh syarat kelayakan izin operasional Koperasi Simpan Pinjam (KSP) dan Unit Simpan Pinjam (USP) Anda.
+            </p>
+
+            <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20izin%20operasional%20KSP%2FUSP" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+                Konsultasi Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="#ukk" class="inline-flex items-center gap-1.5 pl-3 sm:pl-0 mt-1 sm:mt-0 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+                Lihat Syarat Kelayakan
+                <span class="icon-[tabler--arrow-down] size-4"></span>
+              </a>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-2">
+              <a href="#ukk" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Uji Kepatutan &amp; Kelayakan</a>
+              <a href="#slik" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">SLIK OJK/BI Checking</a>
+              <a href="#tidak-pailit" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Surat Tidak Pailit</a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="rounded-2xl border border-border bg-white p-8 shadow-lg">
+              <p class="font-display font-semibold text-ink">3 Syarat Kelayakan Utama</p>
+              <p class="mt-1 text-sm text-ink-muted">Wajib dipenuhi pengurus &amp; pengawas KSP/USP</p>
+              <div class="mt-6 flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-brand-blue/10 text-brand-blue shrink-0 font-mono text-sm font-bold">1</span>
+                  <p class="text-sm font-medium text-ink flex-1">Lulus Uji Kepatutan &amp; Kelayakan (UKK)</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-success/10 text-success shrink-0 font-mono text-sm font-bold">2</span>
+                  <p class="text-sm font-medium text-ink flex-1">Riwayat kredit bersih (SLIK OJK/BI)</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-accent-amber/10 text-accent-amber-dark shrink-0 font-mono text-sm font-bold">3</span>
+                  <p class="text-sm font-medium text-ink flex-1">Surat keterangan tidak pailit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ukk" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-brand-blue/10 text-brand-blue">
+              <span class="icon-[tabler--user-check] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">Pendampingan Uji Kepatutan dan Kelayakan (UKK)</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              UKK adalah penilaian kompetensi dan integritas yang wajib dilalui calon pengurus dan pengawas KSP/USP sebelum izin operasional bisa terbit. Aloka mendampingi persiapan materi, simulasi wawancara, sampai pengurusan dokumen pendukungnya.
+            </p>
+            <div class="mt-6 grid sm:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Pemetaan kesiapan pengurus &amp; pengawas
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Materi &amp; simulasi uji wawancara
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Kelengkapan dokumen pendukung
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Pendampingan sampai dinyatakan lulus
+              </div>
+            </div>
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20pendampingan%20UKK%20pengurus%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Ajukan Pendampingan UKK
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Alur Pendampingan</p>
+            <div class="mt-6 flex flex-col gap-6">
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">1</span>
+                <p class="font-medium text-ink pt-1">Asesmen kesiapan awal</p>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">2</span>
+                <p class="font-medium text-ink pt-1">Pembekalan materi &amp; simulasi</p>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy font-mono text-sm font-bold shrink-0">3</span>
+                <p class="font-medium text-ink pt-1">Pelaksanaan UKK &amp; pendampingan hasil</p>
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp2.000.000 / orang</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="slik" class="scroll-mt-24 py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center justify-center size-12 rounded-xl bg-success/10 text-success">
+            <span class="icon-[tabler--credit-card] size-6"></span>
+          </span>
+          <h2 class="mt-6 font-display font-bold text-3xl text-ink">SLIK OJK / BI Checking</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-muted">
+            SLIK (Sistem Layanan Informasi Keuangan) OJK — dulu dikenal BI Checking — mencatat riwayat kredit seseorang. Calon pengurus dan pengawas KSP/USP wajib punya riwayat kredit bersih. Aloka membantu pengecekan awal dan pendampingan bila ada catatan yang perlu diklarifikasi.
+          </p>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--search] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Pengecekan Riwayat SLIK</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--file-search] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Klarifikasi Catatan Kredit</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--file-certificate] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Dokumen Pendukung Pengajuan</p>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20bantuan%20SLIK%20OJK%2FBI%20Checking" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            Ajukan Pengecekan SLIK
+            <span class="icon-[tabler--arrow-right] size-4"></span>
+          </a>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp300.000 / orang</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="tidak-pailit" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 rounded-2xl bg-brand-navy p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Yang Aloka Bantu</p>
+            <div class="mt-5 flex flex-col gap-4">
+              <div class="flex items-start gap-2.5 text-sm text-white/80">
+                <span class="icon-[tabler--circle-check] size-4 text-brand-sky shrink-0 mt-0.5"></span>
+                Penyiapan berkas permohonan ke Pengadilan Niaga
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-white/80">
+                <span class="icon-[tabler--circle-check] size-4 text-brand-sky shrink-0 mt-0.5"></span>
+                Pengajuan &amp; follow-up proses penerbitan
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-white/80">
+                <span class="icon-[tabler--circle-check] size-4 text-brand-sky shrink-0 mt-0.5"></span>
+                Koordinasi untuk seluruh pengurus &amp; pengawas
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
+              <span class="text-sm text-white/60">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-white tabular-nums">Mulai Rp750.000 / orang</span>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-accent-amber/10 text-accent-amber-dark">
+              <span class="icon-[tabler--scale] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">Surat Keterangan Tidak Pailit</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              Salah satu syarat kelayakan pengurus dan pengawas KSP/USP adalah surat resmi dari Pengadilan Niaga yang menyatakan tidak pernah dinyatakan pailit. Aloka membantu penyiapan berkas dan pengajuannya sampai surat terbit.
+            </p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20bantuan%20surat%20keterangan%20tidak%20pailit" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Ajukan Surat Tidak Pailit
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="relative overflow-hidden rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center" style="background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,173,238,0.45) 0%, rgba(0,173,238,0.25) 45%, rgba(0,173,238,0.1) 75%, transparent 100%), linear-gradient(180deg, #0b0f30 0%, #14204f 40%, #1D4282 70%, #242A6A 100%);">
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-24 md:-right-24 w-72 md:w-96" />
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -bottom-16 -left-16 md:-bottom-24 md:-left-24 w-72 md:w-96 rotate-180" />
+          <div class="relative">
+            <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber">
+              <span class="icon-[tabler--shield-check] size-4"></span>
+              Siap Uji Kelayakan
+            </span>
+            <h2 class="mt-4 font-display font-extrabold text-3xl md:text-5xl text-white leading-tight max-w-2xl mx-auto">
+              Pastikan Pengurus Anda Lolos Syarat Kelayakan
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-white/80 max-w-xl mx-auto">
+              Konsultasi gratis — kami bantu cek kesiapan pengurus &amp; pengawas koperasi Anda sebelum mengajukan izin operasional.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20izin%20operasional%20KSP%2FUSP" class="inline-flex items-center gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
+                Konsultasi Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="/" class="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                Kembali ke Beranda
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  @end
+@end

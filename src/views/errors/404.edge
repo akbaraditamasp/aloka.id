@@ -1,0 +1,52 @@
+{{-- Rendered directly by njin's error handler (renderHttpError), not the normal page-route
+     pipeline — only `statusCode`/`message` locals are passed in, so `request` isn't a global
+     here like it is on regular pages. header.edge reads request.path for active-link styling,
+     so a stub with an empty path is passed explicitly instead of relying on the global. --}}
+@component('layouts/main', { request: { path: '' } })
+  @slot('title')
+    Halaman Tidak Ditemukan | Aloka
+  @end
+
+  @slot('main')
+    <section class="relative overflow-hidden py-20 md:py-32">
+      <img src="{{ vite.static('ornament-pilar-blob.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-20 md:-right-20 w-80 md:w-96 opacity-60" />
+
+      <div class="relative max-w-2xl mx-auto px-4 md:px-6 text-center">
+        <span class="font-mono text-7xl md:text-9xl font-bold tabular-nums bg-clip-text text-transparent" style="background-image: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+          404
+        </span>
+
+        <h1 class="mt-6 font-display font-extrabold text-3xl md:text-4xl text-brand-navy leading-tight">
+          Halaman yang Anda Cari Tidak Ditemukan
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-ink-muted">
+          Halamannya mungkin sudah dipindah, diganti namanya, atau memang belum ada. Coba kembali ke beranda atau langsung ke salah satu layanan di bawah.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center sm:flex-row sm:justify-center gap-4">
+          <a href="/" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+            Kembali ke Beranda
+            <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </span>
+          </a>
+          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            Hubungi Tim Aloka
+            <span class="icon-[tabler--arrow-right] size-4"></span>
+          </a>
+        </div>
+
+        <div class="mt-14 pt-10 border-t border-border">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Atau Langsung Ke</p>
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+            <a href="/konsultasi" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Konsultasi</a>
+            <a href="/legalitas" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Legalitas</a>
+            <a href="/izin-ksp-usp" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Izin KSP/USP</a>
+            <a href="/sertifikasi-bnsp" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Sertifikasi BNSP</a>
+            <a href="/konsultan-pajak" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Konsultan Pajak</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  @end
+@end

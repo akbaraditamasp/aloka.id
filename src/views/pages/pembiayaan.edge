@@ -1,0 +1,246 @@
+@component('layouts/main', { request })
+  @slot('title')
+    Pendampingan Akses Pembiayaan Koperasi | Aloka
+  @end
+
+  @slot('main')
+    <section class="pt-10 md:pt-16 pb-16 md:pb-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">Pembiayaan</span>
+        </nav>
+
+        <div class="mt-8 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Akses Pembiayaan</span>
+            <h1 class="mt-4 font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight text-brand-navy">
+              Koperasi Bankable, Pembiayaan Lebih Mudah Cair
+            </h1>
+            <p class="mt-6 text-lg leading-relaxed text-ink-muted max-w-xl">
+              Dari bank dan lembaga keuangan, program pemerintah seperti KUR, sampai LPDB-KUMKM — Aloka mendampingi penyusunan proposal dan pengajuan pembiayaan koperasi Anda dengan fee flat per paket, bukan success fee.
+            </p>
+
+            <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20akses%20pembiayaan%20koperasi" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+                Konsultasi Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="#bank" class="inline-flex items-center gap-1.5 pl-3 sm:pl-0 mt-1 sm:mt-0 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+                Lihat Jalur Pembiayaan
+                <span class="icon-[tabler--arrow-down] size-4"></span>
+              </a>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-2">
+              <a href="#bank" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Bank &amp; Lembaga Keuangan</a>
+              <a href="#kur" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Program Pemerintah (KUR)</a>
+              <a href="#lpdb" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">LPDB-KUMKM</a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="rounded-2xl border border-border bg-white p-8 shadow-lg">
+              <p class="font-display font-semibold text-ink">Kenapa Fee Flat?</p>
+              <p class="mt-1 text-sm text-ink-muted">Bukan success fee — Anda tahu biayanya sejak awal</p>
+              <div class="mt-6 flex flex-col gap-4">
+                <div class="flex items-start gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-success/10 text-success shrink-0">
+                    <span class="icon-[tabler--circle-check] size-5"></span>
+                  </span>
+                  <p class="text-sm text-ink-muted leading-relaxed">Biaya jelas di depan, tidak ada potongan dari dana yang cair</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-brand-blue/10 text-brand-blue shrink-0">
+                    <span class="icon-[tabler--circle-check] size-5"></span>
+                  </span>
+                  <p class="text-sm text-ink-muted leading-relaxed">Aloka tetap mendampingi walau proses lebih lama dari perkiraan</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-accent-amber/10 text-accent-amber-dark shrink-0">
+                    <span class="icon-[tabler--circle-check] size-5"></span>
+                  </span>
+                  <p class="text-sm text-ink-muted leading-relaxed">Tidak ada konflik kepentingan mengejar komisi dari nominal pinjaman</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bank" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-brand-blue/10 text-brand-blue">
+              <span class="icon-[tabler--building-bank] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">Bank &amp; Lembaga Keuangan</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              Pengajuan pembiayaan ke bank atau lembaga keuangan butuh laporan keuangan yang rapi dan proposal yang meyakinkan. Aloka membantu menyusun keduanya berdasarkan kondisi riil koperasi Anda, bukan template generik yang mudah ditolak.
+            </p>
+            <div class="mt-6 grid sm:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Penyusunan proposal pembiayaan
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Perapian laporan keuangan pendukung
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Pendampingan presentasi ke bank
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Follow-up sampai keputusan turun
+              </div>
+            </div>
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20pendampingan%20pengajuan%20pembiayaan%20ke%20bank" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Ajukan Pendampingan
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Alur Pendampingan</p>
+            <div class="mt-6 flex flex-col gap-6">
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">1</span>
+                <p class="font-medium text-ink pt-1">Asesmen kesiapan &amp; kebutuhan dana</p>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">2</span>
+                <p class="font-medium text-ink pt-1">Penyusunan proposal &amp; laporan pendukung</p>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">3</span>
+                <p class="font-medium text-ink pt-1">Pengajuan &amp; pendampingan presentasi</p>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy font-mono text-sm font-bold shrink-0">4</span>
+                <p class="font-medium text-ink pt-1">Follow-up sampai dana cair</p>
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp2.000.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kur" class="scroll-mt-24 py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 rounded-2xl bg-brand-navy p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Yang Aloka Bantu</p>
+            <div class="mt-5 flex flex-col gap-4">
+              <div class="flex items-start gap-2.5 text-sm text-white/80">
+                <span class="icon-[tabler--circle-check] size-4 text-brand-sky shrink-0 mt-0.5"></span>
+                Pemetaan skema KUR yang sesuai unit usaha koperasi
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-white/80">
+                <span class="icon-[tabler--circle-check] size-4 text-brand-sky shrink-0 mt-0.5"></span>
+                Kelengkapan syarat administrasi &amp; legalitas
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-white/80">
+                <span class="icon-[tabler--circle-check] size-4 text-brand-sky shrink-0 mt-0.5"></span>
+                Pendampingan pengajuan ke bank penyalur KUR
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
+              <span class="text-sm text-white/60">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-white tabular-nums">Mulai Rp2.000.000</span>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-success/10 text-success">
+              <span class="icon-[tabler--report-money] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">Program Pemerintah (KUR)</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              KUR (Kredit Usaha Rakyat) adalah program pembiayaan bersubsidi bunga dari pemerintah untuk usaha produktif, termasuk unit usaha koperasi. Aloka membantu memetakan skema yang sesuai dan menyiapkan seluruh syarat pengajuannya.
+            </p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20pengajuan%20KUR%20untuk%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Konsultasi KUR Koperasi
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lpdb" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center justify-center size-12 rounded-xl bg-accent-amber/10 text-accent-amber-dark">
+            <span class="icon-[tabler--coins] size-6"></span>
+          </span>
+          <h2 class="mt-6 font-display font-bold text-3xl text-ink">LPDB-KUMKM</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-muted">
+            LPDB-KUMKM (Lembaga Pengelola Dana Bergulir Koperasi, Usaha Mikro, Kecil dan Menengah) menyediakan pembiayaan dana bergulir khusus untuk koperasi. Aloka mendampingi dari penyusunan proposal sampai verifikasi lapangan.
+          </p>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--file-text] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Penyusunan Proposal Dana Bergulir</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--file-search] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Kelengkapan Dokumen Verifikasi</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--map-pin] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Pendampingan Verifikasi Lapangan</p>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20pengajuan%20LPDB-KUMKM%20koperasi" class="inline-flex items-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
+            Ajukan Pendampingan LPDB
+            <span class="icon-[tabler--arrow-right] size-4"></span>
+          </a>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp2.500.000</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="relative overflow-hidden rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center" style="background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,173,238,0.45) 0%, rgba(0,173,238,0.25) 45%, rgba(0,173,238,0.1) 75%, transparent 100%), linear-gradient(180deg, #0b0f30 0%, #14204f 40%, #1D4282 70%, #242A6A 100%);">
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-24 md:-right-24 w-72 md:w-96" />
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -bottom-16 -left-16 md:-bottom-24 md:-left-24 w-72 md:w-96 rotate-180" />
+          <div class="relative">
+            <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber">
+              <span class="icon-[tabler--coins] size-4"></span>
+              Bankable, Bukan Sekadar Legal
+            </span>
+            <h2 class="mt-4 font-display font-extrabold text-3xl md:text-5xl text-white leading-tight max-w-2xl mx-auto">
+              Siap Ajukan Pembiayaan untuk Koperasi Anda?
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-white/80 max-w-xl mx-auto">
+              Konsultasi gratis — kami bantu cek kesiapan dokumen koperasi Anda sebelum mengajukan pembiayaan.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20akses%20pembiayaan%20koperasi" class="inline-flex items-center gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
+                Konsultasi Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="/" class="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                Kembali ke Beranda
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  @end
+@end

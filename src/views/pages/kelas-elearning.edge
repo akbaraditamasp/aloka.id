@@ -1,0 +1,292 @@
+{{-- Dummy/static catalog for now — will move to a real model once the content team is ready to
+     manage classes themselves (see project notes). Card markup mirrors the homepage's "Kelas
+     Populer" pattern so swapping to model-driven data later is a straight lift, not a redesign. --}}
+@component('layouts/main', { request })
+  @slot('title')
+    Kelas E-Learning Perkoperasian | Aloka
+  @end
+
+  @slot('main')
+    <section class="pt-10 md:pt-16 pb-16 md:pb-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">Kelas E-Learning</span>
+        </nav>
+
+        <div class="mt-8 max-w-2xl">
+          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Akademi</span>
+          <h1 class="mt-4 font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight text-brand-navy">
+            Kelas E-Learning Perkoperasian
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-ink-muted">
+            Belajar tata kelola, keuangan, legalitas, sampai digitalisasi koperasi — tonton kapan saja sesuai ritme Anda, dapatkan sertifikat setelah selesai.
+          </p>
+        </div>
+
+        {{-- Category pills are visual only for now (dummy data isn't filterable yet) — first pill
+             marked active to show the pattern that'll drive real filtering once this is model-backed. --}}
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="rounded-full bg-brand-navy px-4 py-2 text-sm font-semibold text-white">Semua Kelas</span>
+          <span class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted">Tata Kelola</span>
+          <span class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted">Keuangan</span>
+          <span class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted">Legalitas</span>
+          <span class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted">Digitalisasi</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-16 md:pb-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-1.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-blue shadow-sm">Tata Kelola</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Dasar-Dasar Perkoperasian</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Kenali prinsip, struktur, dan tata kelola koperasi dari nol — fondasi wajib sebelum urus legalitas &amp; keuangan.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Pemula</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 40 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp150.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-2.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-blue shadow-sm">Keuangan</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Akuntansi &amp; Laporan Keuangan Koperasi</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Susun neraca, laporan rugi-laba, dan perhitungan SHU koperasi Anda dengan benar dan bisa diaudit.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Menengah</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 55 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp200.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-3.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-blue shadow-sm">Tata Kelola</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Tata Kelola &amp; SHU Koperasi</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Pahami peran pengurus, pengawas, dan anggota, serta cara pembagian SHU yang adil dan transparan.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Sulit</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 50 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp200.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-1.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-accent-amber-dark shadow-sm">Legalitas</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Legalitas Dasar Koperasi</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Pahami alur akta pendirian, SK Kemenkumham, sampai NIB — biar tidak bingung waktu mulai mengurusnya.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Pemula</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 35 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp150.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-2.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-blue shadow-sm">Keuangan</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Strategi Pengajuan Pembiayaan</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Susun proposal dan laporan yang meyakinkan bank atau lembaga keuangan untuk membiayai koperasi Anda.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Menengah</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 45 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp200.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-3.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-blue shadow-sm">Tata Kelola</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Manajemen Unit Simpan Pinjam</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Kelola alur simpan pinjam anggota secara sehat — dari analisis kelayakan sampai pengelolaan risiko macet.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Menengah</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 50 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp200.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-1.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-success shadow-sm">Digitalisasi</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Digitalisasi Administrasi Koperasi</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Mulai pindah dari pencatatan manual ke sistem digital — lebih rapi, cepat, dan minim salah catat.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Pemula</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 30 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp150.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-2.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-blue shadow-sm">Tata Kelola</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Kepemimpinan Pengurus Koperasi</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Bangun kepercayaan anggota lewat kepemimpinan yang terbuka, komunikatif, dan bertanggung jawab.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Pemula</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 35 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp150.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <div class="relative aspect-video shrink-0">
+              <img src="{{ vite.static('akademi-3.jpg') }}" alt="" class="absolute inset-0 h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-blue shadow-sm">Keuangan</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display font-semibold text-lg text-ink">Audit Internal Koperasi</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted flex-1">
+                Bekali pengawas dengan teknik pemeriksaan internal sederhana sebelum audit eksternal atau RAT.
+              </p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-ink-muted">
+                <div class="flex items-center gap-3">
+                  <span class="rounded-full bg-surface px-3 py-1 text-brand-blue">Sulit</span>
+                  <span class="flex items-center gap-1"><span class="icon-[tabler--clock] size-3.5"></span> 55 Menit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span class="font-mono text-base font-bold text-ink tabular-nums">Rp200.000</span>
+                <span class="icon-[tabler--arrow-right] size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1"></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        {{-- Dummy pagination — non-functional until this is backed by real, paginated data. --}}
+        <div class="mt-12 flex items-center justify-center gap-2">
+          <span class="flex items-center justify-center size-9 rounded-full bg-brand-blue text-white text-sm font-semibold">1</span>
+          <span class="flex items-center justify-center size-9 rounded-full text-ink-muted text-sm font-medium">2</span>
+          <span class="flex items-center justify-center size-9 rounded-full text-ink-muted text-sm font-medium">3</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="relative overflow-hidden rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center" style="background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,173,238,0.45) 0%, rgba(0,173,238,0.25) 45%, rgba(0,173,238,0.1) 75%, transparent 100%), linear-gradient(180deg, #0b0f30 0%, #14204f 40%, #1D4282 70%, #242A6A 100%);">
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-24 md:-right-24 w-72 md:w-96" />
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -bottom-16 -left-16 md:-bottom-24 md:-left-24 w-72 md:w-96 rotate-180" />
+          <div class="relative">
+            <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber">
+              <span class="icon-[tabler--certificate] size-4"></span>
+              Belajar, Lalu Bersertifikat
+            </span>
+            <h2 class="mt-4 font-display font-extrabold text-3xl md:text-5xl text-white leading-tight max-w-2xl mx-auto">
+              Sudah Selesai Kelas? Lanjut Uji Kompetensi BNSP
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-white/80 max-w-xl mx-auto">
+              Buktikan kompetensi Anda lewat Sertifikasi Kompetensi BNSP setelah menyelesaikan kelas yang relevan.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="/sertifikasi-bnsp" class="inline-flex items-center gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
+                Lihat Sertifikasi BNSP
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="/" class="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                Kembali ke Beranda
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  @end
+@end

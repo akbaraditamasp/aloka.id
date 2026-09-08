@@ -1,0 +1,332 @@
+@component('layouts/main', { request })
+  @slot('title')
+    Konsultasi Koperasi — ART, Persus, SOP &amp; Pelaporan RAT | Aloka
+  @end
+
+  @slot('main')
+    <section class="pt-10 md:pt-16 pb-16 md:pb-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">Konsultasi</span>
+        </nav>
+
+        <div class="mt-8 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Konsultasi Koperasi</span>
+            <h1 class="mt-4 font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight text-brand-navy">
+              Tata Kelola Koperasi Anda, Didampingi Konsultan Berpengalaman
+            </h1>
+            <p class="mt-6 text-lg leading-relaxed text-ink-muted max-w-xl">
+              Dari penyusunan ART, peraturan khusus, SOP, sampai pendampingan pelaporan RAT — konsultan Aloka membantu koperasi Anda berjalan sesuai aturan dan tercatat rapi.
+            </p>
+
+            <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20koperasi" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+                Konsultasi Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="#ada-masalah" class="inline-flex items-center gap-1.5 pl-3 sm:pl-0 mt-1 sm:mt-0 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+                Punya Kendala? Mulai Dari Sini
+                <span class="icon-[tabler--arrow-down] size-4"></span>
+              </a>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-2">
+              <a href="#ada-masalah" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Ada Masalah Koperasi?</a>
+              <a href="#art" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">ART</a>
+              <a href="#persus" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Persus</a>
+              <a href="#sop" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">SOP</a>
+              <a href="#pelaporan-rat" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Pelaporan RAT</a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="rounded-2xl border border-border bg-white p-8 shadow-lg">
+              <p class="font-display font-semibold text-ink">Kenapa Perlu Konsultan?</p>
+              <div class="mt-6 flex flex-col gap-5">
+                <div class="flex items-start gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-brand-blue/10 text-brand-blue shrink-0">
+                    <span class="icon-[tabler--users-group] size-5"></span>
+                  </span>
+                  <p class="text-sm text-ink-muted leading-relaxed">Dokumen tata kelola disusun bersama pendamping bersertifikat, bukan template generik.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-success/10 text-success shrink-0">
+                    <span class="icon-[tabler--checklist] size-5"></span>
+                  </span>
+                  <p class="text-sm text-ink-muted leading-relaxed">Disesuaikan dengan jenis dan skala usaha koperasi Anda, bukan satu format untuk semua.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-accent-amber/10 text-accent-amber-dark shrink-0">
+                    <span class="icon-[tabler--shield-check] size-5"></span>
+                  </span>
+                  <p class="text-sm text-ink-muted leading-relaxed">Siap dipakai untuk keperluan izin operasional dan pemeriksaan pihak terkait.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- Diagnostic picker — the one item that isn't a document type but an intake funnel, so it
+         gets a distinct "pick your problem" treatment instead of the info-card pattern below. --}}
+    <section id="ada-masalah" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="max-w-2xl">
+          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Mulai Di Sini</span>
+          <h2 class="mt-3 font-display font-bold text-3xl md:text-4xl text-ink">Koperasi Anda Sedang Menghadapi Apa?</h2>
+          <p class="mt-4 text-lg leading-relaxed text-ink-muted">
+            Pilih kendala yang paling sesuai — kami arahkan langsung ke layanan yang cocok.
+          </p>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 gap-4">
+          <a href="#art" class="group flex items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <span class="flex items-center justify-center size-11 rounded-xl bg-brand-blue/10 text-brand-blue shrink-0">
+              <span class="icon-[tabler--book] size-5"></span>
+            </span>
+            <div>
+              <p class="font-display font-semibold text-ink">"ART koperasi kami belum ada / sudah usang"</p>
+              <p class="mt-1 text-sm text-ink-muted">Lihat layanan penyusunan ART &rarr;</p>
+            </div>
+          </a>
+          <a href="#persus" class="group flex items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <span class="flex items-center justify-center size-11 rounded-xl bg-success/10 text-success shrink-0">
+              <span class="icon-[tabler--gavel] size-5"></span>
+            </span>
+            <div>
+              <p class="font-display font-semibold text-ink">"Butuh aturan internal khusus simpan pinjam/usaha tertentu"</p>
+              <p class="mt-1 text-sm text-ink-muted">Lihat layanan penyusunan Persus &rarr;</p>
+            </div>
+          </a>
+          <a href="#sop" class="group flex items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <span class="flex items-center justify-center size-11 rounded-xl bg-accent-amber/10 text-accent-amber-dark shrink-0">
+              <span class="icon-[tabler--list-check] size-5"></span>
+            </span>
+            <div>
+              <p class="font-display font-semibold text-ink">"Operasional harian belum ada prosedur baku"</p>
+              <p class="mt-1 text-sm text-ink-muted">Lihat layanan penyusunan SOP &rarr;</p>
+            </div>
+          </a>
+          <a href="#pelaporan-rat" class="group flex items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <span class="flex items-center justify-center size-11 rounded-xl bg-brand-indigo/10 text-brand-indigo shrink-0">
+              <span class="icon-[tabler--calendar-event] size-5"></span>
+            </span>
+            <div>
+              <p class="font-display font-semibold text-ink">"RAT belum pernah/rutin dilaksanakan dengan tertib"</p>
+              <p class="mt-1 text-sm text-ink-muted">Lihat layanan pendampingan RAT &rarr;</p>
+            </div>
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm text-ink-muted">
+          Kendala lain di luar daftar ini? <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20koperasi%20saya%20punya%20kendala%20di%20luar%20daftar%20layanan" class="font-semibold text-brand-blue hover:text-brand-indigo transition-colors">Ceritakan langsung ke tim kami</a>.
+        </p>
+      </div>
+    </section>
+
+    <section id="art" class="scroll-mt-24 py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-brand-blue/10 text-brand-blue">
+              <span class="icon-[tabler--book] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">ART (Anggaran Rumah Tangga)</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              ART adalah aturan main koperasi yang menjabarkan Anggaran Dasar ke praktik sehari-hari — keanggotaan, hak-kewajiban, mekanisme rapat, sampai pembagian SHU. Aloka menyusunkan ART yang sesuai kondisi koperasi Anda dan siap disahkan lewat RAT.
+            </p>
+            <div class="mt-6 grid sm:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Review ART lama (jika sudah ada)
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Penyusunan draf sesuai jenis usaha
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Pendampingan pengesahan di RAT
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Revisi sampai disetujui anggota
+              </div>
+            </div>
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20penyusunan%20ART%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Konsultasi Penyusunan ART
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Yang Diatur di ART</p>
+            <div class="mt-5 flex flex-col divide-y divide-border">
+              <div class="py-3 flex items-center justify-between text-sm"><span class="text-ink">Syarat &amp; mekanisme keanggotaan</span></div>
+              <div class="py-3 flex items-center justify-between text-sm"><span class="text-ink">Hak dan kewajiban anggota</span></div>
+              <div class="py-3 flex items-center justify-between text-sm"><span class="text-ink">Mekanisme rapat &amp; pengambilan keputusan</span></div>
+              <div class="py-3 flex items-center justify-between text-sm"><span class="text-ink">Tata cara pembagian SHU</span></div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp1.000.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="persus" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 rounded-2xl border border-border bg-white p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Contoh Cakupan Persus</p>
+            <div class="mt-5 flex flex-col gap-4">
+              <div class="flex items-center gap-3">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-brand-blue/10 text-brand-blue shrink-0"><span class="icon-[tabler--cash] size-5"></span></span>
+                <p class="text-sm text-ink">Peraturan khusus unit simpan pinjam</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-success/10 text-success shrink-0"><span class="icon-[tabler--building-store] size-5"></span></span>
+                <p class="text-sm text-ink">Peraturan khusus unit usaha dagang/jasa</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-accent-amber/10 text-accent-amber-dark shrink-0"><span class="icon-[tabler--users-group] size-5"></span></span>
+                <p class="text-sm text-ink">Peraturan khusus keanggotaan &amp; kepengurusan</p>
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp1.000.000 / dokumen</span>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-success/10 text-success">
+              <span class="icon-[tabler--gavel] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">Persus (Peraturan Khusus)</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              Persus adalah aturan internal tambahan di luar ART, dibuat untuk unit usaha atau kegiatan spesifik koperasi Anda — misalnya ketentuan bunga simpan pinjam, mekanisme agunan, atau tata cara unit usaha lainnya. Aloka bantu susun Persus yang sesuai kebutuhan spesifik koperasi Anda.
+            </p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20penyusunan%20Persus%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Konsultasi Penyusunan Persus
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- SOP — deliberately the compact section on this page, same "smallest" role NPWP played on
+         the Legalitas page, so the page's rhythm still varies. --}}
+    <section id="sop" class="scroll-mt-24 py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center justify-center size-12 rounded-xl bg-accent-amber/10 text-accent-amber-dark">
+            <span class="icon-[tabler--list-check] size-6"></span>
+          </span>
+          <h2 class="mt-6 font-display font-bold text-3xl text-ink">SOP (Standar Operasional Prosedur)</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-muted">
+            SOP menuntun pengurus dan staf koperasi menjalankan tugas harian secara konsisten — dari penerimaan anggota, pencairan pinjaman, sampai penutupan kas. Aloka menyusun SOP sesuai alur kerja koperasi Anda yang sebenarnya, bukan template umum.
+          </p>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--user-check] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">SOP Penerimaan Anggota</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--cash] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">SOP Simpan Pinjam</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--report] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">SOP Kas &amp; Pelaporan</p>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20penyusunan%20SOP%20koperasi" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            Konsultasi Penyusunan SOP
+            <span class="icon-[tabler--arrow-right] size-4"></span>
+          </a>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp1.500.000 / paket SOP</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="pelaporan-rat" class="scroll-mt-24 relative overflow-hidden py-16 md:py-24 bg-surface">
+      <img src="{{ vite.static('ornament-pilar-blob.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-20 md:-right-20 w-80 md:w-96 opacity-60" />
+      <div class="relative max-w-7xl mx-auto px-4 md:px-6">
+        <div class="max-w-2xl">
+          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Tahunan</span>
+          <h2 class="mt-3 font-display font-bold text-3xl md:text-4xl text-ink">Pendampingan Pelaporan RAT</h2>
+          <p class="mt-4 text-lg leading-relaxed text-ink-muted">
+            RAT (Rapat Anggota Tahunan) adalah forum tertinggi koperasi untuk mempertanggungjawabkan kinerja pengurus dan mengesahkan laporan keuangan &amp; SHU. Aloka mendampingi dari persiapan sampai laporan RAT selesai disahkan.
+          </p>
+        </div>
+        <div class="mt-12 grid md:grid-cols-4 gap-6">
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="font-mono text-2xl font-bold text-brand-navy tabular-nums">1</span>
+            <p class="mt-3 text-sm font-semibold text-ink">Persiapan Agenda &amp; Undangan</p>
+          </div>
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="font-mono text-2xl font-bold text-brand-navy tabular-nums">2</span>
+            <p class="mt-3 text-sm font-semibold text-ink">Penyusunan Laporan Tahunan</p>
+          </div>
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="font-mono text-2xl font-bold text-brand-navy tabular-nums">3</span>
+            <p class="mt-3 text-sm font-semibold text-ink">Pendampingan Jalannya RAT</p>
+          </div>
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="font-mono text-2xl font-bold text-brand-navy tabular-nums">4</span>
+            <p class="mt-3 text-sm font-semibold text-ink">Notulensi &amp; Pengesahan</p>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20pendampingan%20pelaporan%20RAT%20koperasi" class="inline-flex items-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
+            Ajukan Pendampingan RAT
+            <span class="icon-[tabler--arrow-right] size-4"></span>
+          </a>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp2.000.000 / sesi RAT</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="relative overflow-hidden rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center" style="background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,173,238,0.45) 0%, rgba(0,173,238,0.25) 45%, rgba(0,173,238,0.1) 75%, transparent 100%), linear-gradient(180deg, #0b0f30 0%, #14204f 40%, #1D4282 70%, #242A6A 100%);">
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-24 md:-right-24 w-72 md:w-96" />
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -bottom-16 -left-16 md:-bottom-24 md:-left-24 w-72 md:w-96 rotate-180" />
+          <div class="relative">
+            <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber">
+              <span class="icon-[tabler--users-group] size-4"></span>
+              Didampingi, Bukan Sekadar Diajari
+            </span>
+            <h2 class="mt-4 font-display font-extrabold text-3xl md:text-5xl text-white leading-tight max-w-2xl mx-auto">
+              Bingung Mulai dari Dokumen Mana?
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-white/80 max-w-xl mx-auto">
+              Konsultasi gratis dengan pendamping Aloka — kami bantu petakan tata kelola koperasi Anda dari nol.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20tata%20kelola%20koperasi" class="inline-flex items-center gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
+                Konsultasi Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="/" class="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                Kembali ke Beranda
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  @end
+@end

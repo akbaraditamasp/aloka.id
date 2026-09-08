@@ -1,0 +1,420 @@
+@component('layouts/main', { request })
+  @slot('title')
+    Legalitas Koperasi — Akta, SK, NPWP &amp; NIB | Aloka
+  @end
+
+  @slot('main')
+    {{-- Light hero (STYLE.md §6 pattern 2): breadcrumb + navy headline, checklist card instead of a
+         photo panel since this pillar has no documentary photography yet. --}}
+    <section class="pt-10 md:pt-16 pb-16 md:pb-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">Legalitas</span>
+        </nav>
+
+        <div class="mt-8 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Legalitas Koperasi</span>
+            <h1 class="mt-4 font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight text-brand-navy">
+              Dokumen Legal Koperasi Anda, Diurus Sampai Tuntas
+            </h1>
+            <p class="mt-6 text-lg leading-relaxed text-ink-muted max-w-xl">
+              Dari akta pendirian, SK Kemenkumham, NPWP, sampai NIB dan izin turunannya — tim Aloka yang mengerjakan dokumennya langsung, bukan cuma mengajarkan caranya.
+            </p>
+
+            <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20soal%20legalitas%20koperasi" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+                Konsultasi Legalitas Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="#akta" class="inline-flex items-center gap-1.5 pl-3 sm:pl-0 mt-1 sm:mt-0 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+                Lihat Semua Dokumen
+                <span class="icon-[tabler--arrow-down] size-4"></span>
+              </a>
+            </div>
+
+            {{-- Quick-nav pills — doubles as the in-page destination for the header dropdown's anchor
+                 links (#akta, #sk, #npwp, #nib), so a visitor landing mid-page can still jump around. --}}
+            <div class="mt-10 flex flex-wrap gap-2">
+              <a href="#akta" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">Akta Pendirian</a>
+              <a href="#sk" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">SK Kemenkumham</a>
+              <a href="#npwp" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">NPWP</a>
+              <a href="#nib" class="rounded-full border border-border px-4 py-2 text-sm font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue transition-colors">NIB</a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="rounded-2xl border border-border bg-white p-8 shadow-lg">
+              <p class="font-display font-semibold text-ink">Status Legalitas Koperasi Anda</p>
+              <p class="mt-1 text-sm text-ink-muted">Contoh progres pendampingan lengkap dari Aloka</p>
+              <div class="mt-6 flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-success/10 text-success shrink-0">
+                    <span class="icon-[tabler--check] size-5"></span>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm font-medium text-ink">Akta Pendirian</p>
+                  </div>
+                  <span class="rounded-full bg-success/10 px-2.5 py-1 text-xs font-semibold text-success">Terbit</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-success/10 text-success shrink-0">
+                    <span class="icon-[tabler--check] size-5"></span>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm font-medium text-ink">SK Kemenkumham</p>
+                  </div>
+                  <span class="rounded-full bg-success/10 px-2.5 py-1 text-xs font-semibold text-success">Terbit</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-brand-blue/10 text-brand-blue shrink-0">
+                    <span class="icon-[tabler--clock] size-5"></span>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm font-medium text-ink">NPWP</p>
+                  </div>
+                  <span class="rounded-full bg-brand-blue/10 px-2.5 py-1 text-xs font-semibold text-brand-blue">Diproses</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center justify-center size-9 rounded-full bg-surface text-ink-muted shrink-0">
+                    <span class="icon-[tabler--point] size-5"></span>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm font-medium text-ink">NIB &amp; Izin Turunan</p>
+                  </div>
+                  <span class="rounded-full bg-surface px-2.5 py-1 text-xs font-semibold text-ink-muted">Menunggu</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -right-4 -bottom-6 md:-right-8 w-64 rounded-2xl bg-brand-navy p-5 shadow-lg hidden sm:block">
+              <div class="flex items-start gap-2.5">
+                <span class="icon-[tabler--shield-check] size-5 text-brand-sky shrink-0 mt-0.5"></span>
+                <p class="text-sm text-white/90 leading-relaxed">
+                  Satu tim yang sama mendampingi dari akta sampai NIB — tidak perlu ganti-ganti konsultan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- Akta — text left / illustration right (design pattern A for this page). --}}
+    <section id="akta" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-brand-blue/10 text-brand-blue">
+              <span class="icon-[tabler--file-text] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">Akta Pendirian</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              Akta pendirian adalah dokumen notaris yang jadi dasar hukum koperasi Anda terbentuk — syarat utama sebelum bisa mengajukan SK Kemenkumham. Aloka menyusun draf akta sesuai hasil Rapat Anggota Pembentukan, mengoordinasikan notaris rekanan, dan mendampingi sampai akta ditandatangani.
+            </p>
+
+            <div class="mt-6 grid sm:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Penyusunan draf akta
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Koordinasi notaris rekanan
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Pendampingan RAT pembentukan
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Revisi sampai akta disahkan
+              </div>
+            </div>
+
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20akta%20pendirian%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Mulai Urus Akta Pendirian
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+
+          <div class="rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Alur Pengurusan</p>
+            <div class="mt-6 flex flex-col gap-6">
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">1</span>
+                <div>
+                  <p class="font-medium text-ink">Konsultasi kebutuhan</p>
+                  <p class="text-sm text-ink-muted mt-0.5">Diskusi susunan pengurus, pengawas, dan modal awal koperasi.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">2</span>
+                <div>
+                  <p class="font-medium text-ink">Penyusunan draf akta</p>
+                  <p class="text-sm text-ink-muted mt-0.5">Aloka menyiapkan draf sesuai hasil RAT pembentukan.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-brand-navy text-white font-mono text-sm font-bold shrink-0">3</span>
+                <div>
+                  <p class="font-medium text-ink">Tanda tangan notaris</p>
+                  <p class="text-sm text-ink-muted mt-0.5">Penandatanganan akta di hadapan notaris rekanan.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy font-mono text-sm font-bold shrink-0">4</span>
+                <div>
+                  <p class="font-medium text-ink">Akta terbit</p>
+                  <p class="text-sm text-ink-muted mt-0.5">Siap dilanjutkan ke pengajuan SK Kemenkumham.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp1.500.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- SK Kemenkumham — mirrored layout (illustration left / text right) so this section reads
+         differently from Akta above, not a repeated block. --}}
+    <section id="sk" class="scroll-mt-24 py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 rounded-2xl bg-brand-navy p-8 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Alur Pengurusan</p>
+            <div class="mt-6 flex flex-col gap-6">
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-white/15 text-white font-mono text-sm font-bold shrink-0">1</span>
+                <div>
+                  <p class="font-medium text-white">Pengajuan online AHU</p>
+                  <p class="text-sm text-white/60 mt-0.5">Pendaftaran nama &amp; data koperasi lewat sistem AHU Kemenkumham.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-white/15 text-white font-mono text-sm font-bold shrink-0">2</span>
+                <div>
+                  <p class="font-medium text-white">Pengecekan &amp; kelengkapan dokumen</p>
+                  <p class="text-sm text-white/60 mt-0.5">Aloka memastikan akta dan lampiran sesuai syarat sebelum diajukan.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-white/15 text-white font-mono text-sm font-bold shrink-0">3</span>
+                <div>
+                  <p class="font-medium text-white">Follow-up proses verifikasi</p>
+                  <p class="text-sm text-white/60 mt-0.5">Pemantauan status pengajuan sampai keputusan turun.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy font-mono text-sm font-bold shrink-0">4</span>
+                <div>
+                  <p class="font-medium text-white">SK terbit</p>
+                  <p class="text-sm text-white/60 mt-0.5">Koperasi Anda resmi berstatus badan hukum.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
+              <span class="text-sm text-white/60">Estimasi biaya</span>
+              <span class="font-mono text-lg font-bold text-white tabular-nums">Mulai Rp1.000.000</span>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2">
+            <span class="inline-flex items-center justify-center size-12 rounded-xl bg-success/10 text-success">
+              <span class="icon-[tabler--rubber-stamp] size-6"></span>
+            </span>
+            <h2 class="mt-6 font-display font-bold text-3xl text-ink">SK Pengesahan Kemenkumham</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-muted">
+              SK (Surat Keputusan) Kemenkumham adalah pengesahan badan hukum koperasi setelah akta terbit — begitu SK keluar, koperasi Anda resmi diakui negara dan bisa membuka rekening, ikut tender, atau mengajukan pembiayaan atas nama badan hukum sendiri.
+            </p>
+
+            <div class="mt-6 grid sm:grid-cols-2 gap-3">
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Pengajuan lewat sistem AHU
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Pengecekan kelengkapan dokumen
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Follow-up sampai terbit
+              </div>
+              <div class="flex items-start gap-2.5 text-sm text-ink-muted">
+                <span class="icon-[tabler--circle-check] size-4 text-success shrink-0 mt-0.5"></span>
+                Konsultasi status kapan saja
+              </div>
+            </div>
+
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20SK%20Kemenkumham%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+              Mulai Urus SK Kemenkumham
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- NPWP — deliberately the smallest/simplest section on the page (single-column, no timeline
+         card) so the page's rhythm varies instead of every document getting equal visual weight. --}}
+    <section id="npwp" class="scroll-mt-24 py-16 md:py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center justify-center size-12 rounded-xl bg-accent-amber/10 text-accent-amber-dark">
+            <span class="icon-[tabler--receipt-tax] size-6"></span>
+          </span>
+          <h2 class="mt-6 font-display font-bold text-3xl text-ink">NPWP Koperasi</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-muted">
+            NPWP (Nomor Pokok Wajib Pajak) badan adalah identitas perpajakan koperasi Anda — dibutuhkan untuk membuka rekening atas nama koperasi, mengikuti tender, dan melaporkan pajak tahunan. Aloka mengurus pendaftaran sampai kartu NPWP terbit.
+          </p>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--file-invoice] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Pendaftaran NPWP Badan</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--id] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Pengambilan Kartu NPWP</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <span class="icon-[tabler--key] size-5 text-brand-blue"></span>
+            <p class="mt-3 text-sm font-semibold text-ink">Aktivasi EFIN Pelaporan</p>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20NPWP%20koperasi" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            Mulai Urus NPWP
+            <span class="icon-[tabler--arrow-right] size-4"></span>
+          </a>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp500.000</span></span>
+        </div>
+      </div>
+    </section>
+
+    {{-- NIB — the richest section (payung/umbrella document with 5 derivative permits), grid of
+         sub-items mirrors the homepage's pilar-card pattern for family resemblance without being
+         an identical layout to the sections above. --}}
+    <section id="nib" class="scroll-mt-24 relative overflow-hidden py-16 md:py-24">
+      <img src="{{ vite.static('ornament-pilar-blob.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-20 md:-right-20 w-80 md:w-96 opacity-60" />
+
+      <div class="relative max-w-7xl mx-auto px-4 md:px-6">
+        <div class="max-w-2xl">
+          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Izin Berusaha</span>
+          <h2 class="mt-3 font-display font-bold text-3xl md:text-4xl text-ink">
+            NIB &amp; <span class="bg-clip-text text-transparent" style="background-image: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">Izin Turunannya</span>
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-ink-muted">
+            NIB (Nomor Induk Berusaha) adalah identitas berusaha koperasi yang terbit lewat sistem OSS — sekaligus jadi dasar bagi izin-izin turunan di bawah ini, tergantung skala dan jenis usaha koperasi Anda.
+          </p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <span class="flex items-center justify-center size-12 rounded-xl bg-brand-blue/10 text-brand-blue">
+              <span class="icon-[tabler--category] size-6"></span>
+            </span>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Penerbitan KBLI</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
+              Klasifikasi Baku Lapangan Usaha Indonesia — penentuan kode usaha koperasi Anda di sistem OSS, dasar bagi izin-izin lain di bawah ini.
+            </p>
+          </div>
+
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <span class="flex items-center justify-center size-12 rounded-xl bg-success/10 text-success">
+              <span class="icon-[tabler--map-2] size-6"></span>
+            </span>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">PKKPR</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
+              Persetujuan Kesesuaian Kegiatan Pemanfaatan Ruang — konfirmasi bahwa lokasi usaha koperasi sesuai tata ruang wilayah setempat.
+            </p>
+          </div>
+
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <span class="flex items-center justify-center size-12 rounded-xl bg-accent-amber/10 text-accent-amber-dark">
+              <span class="icon-[tabler--leaf] size-6"></span>
+            </span>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Izin Lingkungan</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
+              Dokumen lingkungan (mis. SPPL/UKL-UPL) yang disesuaikan dengan skala dan dampak usaha koperasi Anda.
+            </p>
+          </div>
+
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <span class="flex items-center justify-center size-12 rounded-xl bg-brand-indigo/10 text-brand-indigo">
+              <span class="icon-[tabler--report] size-6"></span>
+            </span>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Laporan LKPM</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
+              Laporan Kegiatan Penanaman Modal — pelaporan berkala wajib ke BKPM agar NIB koperasi Anda tetap aktif dan tidak bermasalah.
+            </p>
+          </div>
+
+          <div class="flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm">
+            <span class="flex items-center justify-center size-12 rounded-xl bg-brand-navy/10 text-brand-navy">
+              <span class="icon-[tabler--certificate] size-6"></span>
+            </span>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Sertifikat NIK</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
+              Dokumen pendukung yang terintegrasi dengan NIB koperasi Anda di sistem OSS — Aloka bantu lengkapi sebagai bagian satu paket pengurusan.
+            </p>
+          </div>
+
+          <div class="flex flex-col justify-center rounded-2xl bg-brand-navy p-8 shadow-sm text-center">
+            <p class="font-mono text-sm text-white/60">Paket Lengkap NIB + 5 Izin Turunan</p>
+            <p class="mt-2 font-mono text-2xl font-bold text-white tabular-nums">Mulai Rp5.000.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20NIB%20dan%20izin%20turunannya" class="mt-4 inline-flex items-center justify-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
+              Ajukan Paket Ini
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- Closing CTA — same darkened radial-gradient panel used to close the homepage, so the two
+         pages end on a visually consistent note. --}}
+    <section class="py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="relative overflow-hidden rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center" style="background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,173,238,0.45) 0%, rgba(0,173,238,0.25) 45%, rgba(0,173,238,0.1) 75%, transparent 100%), linear-gradient(180deg, #0b0f30 0%, #14204f 40%, #1D4282 70%, #242A6A 100%);">
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-24 md:-right-24 w-72 md:w-96" />
+          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -bottom-16 -left-16 md:-bottom-24 md:-left-24 w-72 md:w-96 rotate-180" />
+
+          <div class="relative">
+            <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber">
+              <span class="icon-[tabler--shield-check] size-4"></span>
+              Legalitas Beres
+            </span>
+            <h2 class="mt-4 font-display font-extrabold text-3xl md:text-5xl text-white leading-tight max-w-2xl mx-auto">
+              Mau Tahu Dokumen Apa yang Koperasi Anda Masih Butuh?
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-white/80 max-w-xl mx-auto">
+              Konsultasi gratis dengan tim legalitas Aloka — kami bantu petakan dokumen yang sudah dan belum lengkap.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20legalitas%20koperasi" class="inline-flex items-center gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
+                Konsultasi Legalitas Gratis
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </a>
+              <a href="/" class="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                Kembali ke Beranda
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  @end
+@end

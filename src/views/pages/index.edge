@@ -19,6 +19,10 @@
               Bareng Aloka
             </h1>
 
+            <p class="mt-3 font-display font-semibold text-xl md:text-2xl text-brand-blue">
+              Lebih Objektif, Kredibel &amp; Akuntabel
+            </p>
+
             <p class="mt-6 text-lg leading-relaxed text-ink-muted max-w-xl">
               Dari kelas online dan sertifikasi, konsultasi dengan pendamping bersertifikat, sampai pengurusan legalitas dan akses pembiayaan — Aloka menemani koperasi Anda di setiap langkah, online maupun langsung ke lokasi.
             </p>
@@ -140,39 +144,42 @@
 
       <div class="relative max-w-7xl mx-auto px-4 md:px-6">
         <div class="max-w-2xl">
-          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">6 Layanan Utama</span>
+          {{-- Dropped the hardcoded "6 Layanan Utama" label — the pillar count has already
+               changed once (now 7 pages incl. Konsultan Pajak) and will keep moving as new
+               pillars are added, so the eyebrow stays a plain category label instead. --}}
+          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Layanan Utama</span>
           <h2 class="mt-3 font-display font-bold text-3xl md:text-4xl text-ink">
             Satu Platform,
             <span class="bg-clip-text text-transparent" style="background-image: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">Semua Kebutuhan Koperasi</span>
             Anda
           </h2>
           <p class="mt-4 text-lg leading-relaxed text-ink-muted">
-            Dari belajar mandiri dan konsultasi dengan pendamping bersertifikat, sampai legalitas, izin simpan pinjam, akses pembiayaan LPDB, dan sertifikasi kompetensi — semua tersedia di Aloka.
+            Dari kelas online dan sertifikasi, konsultasi tata kelola, legalitas dan perizinan, akses pembiayaan, sampai konsultan pajak — semua tersedia di Aloka.
           </p>
         </div>
 
         <div class="mt-12 grid md:grid-cols-3 gap-6">
-          <a href="/akademi/kelas-online" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+          <a href="/kelas-elearning" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
             <span class="flex items-center justify-center size-12 rounded-xl bg-brand-blue/10 text-brand-blue">
               <span class="icon-[ph--graduation-cap-duotone] size-6"></span>
             </span>
-            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Akademi</h3>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Kelas E-Learning</h3>
             <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
-              Kelas online pelatihan perkoperasian dari dasar sampai lanjutan, plus webinar rutin bareng fasilitator berpengalaman — belajar mandiri sesuai ritme Anda.
+              Kelas online pelatihan perkoperasian dari dasar sampai lanjutan — belajar mandiri sesuai ritme Anda, dapatkan sertifikat setelah selesai.
             </p>
             <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue group-hover:text-brand-indigo transition-colors">
-              Jelajahi Akademi
+              Jelajahi Kelas
               <span class="icon-[tabler--arrow-right] size-4 transition-transform duration-300 group-hover:translate-x-1"></span>
             </span>
           </a>
 
-          <a href="/konsultasi/online" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+          <a href="/konsultasi" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
             <span class="flex items-center justify-center size-12 rounded-xl bg-success/10 text-success">
               <span class="icon-[ph--chats-circle-duotone] size-6"></span>
             </span>
             <h3 class="mt-6 font-display font-semibold text-xl text-ink">Konsultasi</h3>
             <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
-              Konsultasi online terjadwal atau "Panggil Pelatih" langsung ke lokasi, plus pendampingan penyusunan laporan keuangan koperasi.
+              ART, Persus, SOP, sampai pendampingan pelaporan RAT — didampingi konsultan berpengalaman, bukan sekadar diajari.
             </p>
             <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue group-hover:text-brand-indigo transition-colors">
               Lihat Layanan Konsultasi
@@ -180,7 +187,7 @@
             </span>
           </a>
 
-          <a href="/legalitas-pembiayaan/pendirian-koperasi" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+          <a href="/legalitas" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
             <span class="flex items-center justify-center size-12 rounded-xl bg-accent-amber/10 text-accent-amber-dark">
               <span class="icon-[ph--scales-duotone] size-6"></span>
             </span>
@@ -194,13 +201,27 @@
             </span>
           </a>
 
-          <a href="/legalitas-pembiayaan/akses-pembiayaan" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+          <a href="/izin-ksp-usp" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+            <span class="flex items-center justify-center size-12 rounded-xl bg-brand-navy/10 text-brand-navy">
+              <span class="icon-[ph--shield-check-duotone] size-6"></span>
+            </span>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Izin KSP/USP</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
+              Uji Kepatutan &amp; Kelayakan pengurus, SLIK OJK/BI Checking, sampai surat keterangan tidak pailit — lengkap syarat kelayakan izin operasional Anda.
+            </p>
+            <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue group-hover:text-brand-indigo transition-colors">
+              Urus Izin KSP/USP
+              <span class="icon-[tabler--arrow-right] size-4 transition-transform duration-300 group-hover:translate-x-1"></span>
+            </span>
+          </a>
+
+          <a href="/pembiayaan" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
             <span class="flex items-center justify-center size-12 rounded-xl bg-brand-indigo/10 text-brand-indigo">
               <span class="icon-[ph--hand-coins-duotone] size-6"></span>
             </span>
             <h3 class="mt-6 font-display font-semibold text-xl text-ink">Pembiayaan</h3>
             <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
-              Pendampingan pengajuan akses pembiayaan ke LPDB-KUMKM, dari penyusunan proposal sampai verifikasi, biar peluang koperasi Anda lolos lebih besar.
+              Pendampingan pengajuan pembiayaan ke bank, KUR, sampai LPDB-KUMKM dengan fee flat per paket — bukan success fee.
             </p>
             <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue group-hover:text-brand-indigo transition-colors">
               Ajukan Pendampingan Pembiayaan
@@ -208,34 +229,44 @@
             </span>
           </a>
 
-          <a href="/legalitas-pembiayaan/izin-operasional-ksp-usp" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
-            <span class="flex items-center justify-center size-12 rounded-xl bg-brand-navy/10 text-brand-navy">
-              <span class="icon-[ph--shield-check-duotone] size-6"></span>
-            </span>
-            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Izin Simpan Pinjam</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
-              Pengurusan izin operasional Koperasi Simpan Pinjam (KSP) dan Unit Simpan Pinjam (USP), dari kelengkapan berkas sampai izin terbit.
-            </p>
-            <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue group-hover:text-brand-indigo transition-colors">
-              Urus Izin Simpan Pinjam
-              <span class="icon-[tabler--arrow-right] size-4 transition-transform duration-300 group-hover:translate-x-1"></span>
-            </span>
-          </a>
-
-          <a href="/akademi/sertifikasi" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
+          <a href="/sertifikasi-bnsp" class="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-blue/30">
             <span class="flex items-center justify-center size-12 rounded-xl bg-brand-blue/10 text-brand-blue">
               <span class="icon-[ph--certificate-duotone] size-6"></span>
             </span>
-            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Sertifikasi Kompetensi</h3>
+            <h3 class="mt-6 font-display font-semibold text-xl text-ink">Sertifikasi BNSP</h3>
             <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">
-              Uji dan buktikan kompetensi pengurus koperasi lewat sertifikasi berbasis standar perkoperasian, lengkap dengan try out sebelum ujian.
+              Buktikan kompetensi pengurus lewat Sertifikasi Kompetensi BNSP, resmi berbasis standar nasional, lengkap dengan try out sebelum ujian.
             </p>
             <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue group-hover:text-brand-indigo transition-colors">
-              Lihat Sertifikasi Kompetensi
+              Lihat Sertifikasi BNSP
               <span class="icon-[tabler--arrow-right] size-4 transition-transform duration-300 group-hover:translate-x-1"></span>
             </span>
           </a>
         </div>
+
+        {{-- Konsultan Pajak is the 7th pillar — a genuinely new service, not part of the original
+             6. Rather than force it into an awkward orphan slot in the 3-col grid above, it gets
+             its own full-width banner row so the "new" positioning reads as deliberate. --}}
+        <a href="/konsultan-pajak" class="group mt-6 flex flex-col sm:flex-row sm:items-center gap-6 rounded-2xl bg-brand-navy p-8 shadow-sm transition-all duration-300 hover:shadow-xl">
+          <span class="flex items-center justify-center size-14 rounded-xl bg-white/10 text-brand-sky shrink-0">
+            <span class="icon-[tabler--calculator] size-7"></span>
+          </span>
+          <div class="flex-1">
+            <div class="flex items-center gap-2.5">
+              <h3 class="font-display font-semibold text-xl text-white">Konsultan Pajak</h3>
+              <span class="rounded-full bg-accent-amber px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-brand-navy">Baru</span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-white/70">
+              Pelaporan pajak tahunan, konsultasi pajak SHU, PPN unit usaha, sampai pendampingan pemeriksaan pajak koperasi.
+            </p>
+          </div>
+          <span class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
+            Konsultasi Pajak Gratis
+            <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </span>
+          </span>
+        </a>
       </div>
     </section>
 

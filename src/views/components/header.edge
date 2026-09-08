@@ -10,40 +10,36 @@
       <span class="font-display font-bold text-brand-navy text-2xl">aloka</span>
     </a>
 
+    {{-- Consolidated to 4 top-level dropdowns (down from the client's 9 standalone items) — 9 items
+         side-by-side didn't fit well and read as visual clutter, so related pillars are grouped:
+         Akademi absorbs Sertifikasi BNSP, Konsultasi absorbs Konsultan Pajak, Legalitas absorbs
+         Izin KSP/USP as a second labeled group, and the old Fasilitator/Event/Tentang become one
+         "Tentang Kami" dropdown. Every original destination page/anchor is still reachable. --}}
     <div class="hidden lg:flex items-center gap-1 rounded-full bg-brand-navy p-2">
       <nav class="flex items-center gap-1 font-sans text-sm font-medium text-white/80">
         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ request.path.startsWith('/akademi') ? 'text-white bg-white/10' : '' }}">
+          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ (request.path.startsWith('/kelas-elearning') || request.path.startsWith('/sertifikasi-bnsp')) ? 'text-white bg-white/10' : '' }}">
             Akademi
             <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full pt-3 w-80">
             <div class="bg-surface-white border border-border rounded-2xl shadow-lg p-2">
-              <a href="/akademi/kelas-online" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+              <a href="/kelas-elearning" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
                 <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
                   <span class="icon-[tabler--device-laptop] size-5"></span>
                 </span>
                 <span>
-                  <span class="block font-medium text-ink">Kelas Online</span>
+                  <span class="block font-medium text-ink">Kelas E-Learning</span>
                   <span class="block text-xs text-ink-muted mt-0.5">Belajar perkoperasian &amp; laporan keuangan mandiri</span>
                 </span>
               </a>
-              <a href="/akademi/sertifikasi" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+              <a href="/sertifikasi-bnsp" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
                 <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
                   <span class="icon-[tabler--certificate] size-5"></span>
                 </span>
                 <span>
-                  <span class="block font-medium text-ink">Sertifikasi</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Sertifikasi Kompetensi Aloka per skema</span>
-                </span>
-              </a>
-              <a href="/akademi/webinar" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
-                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
-                  <span class="icon-[tabler--presentation] size-5"></span>
-                </span>
-                <span>
-                  <span class="block font-medium text-ink">Webinar</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Jadwal webinar &amp; uji kompetensi rutin</span>
+                  <span class="block font-medium text-ink">Sertifikasi Kompetensi BNSP</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Sertifikasi resmi berbasis standar nasional</span>
                 </span>
               </a>
             </div>
@@ -51,37 +47,64 @@
         </div>
 
         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ request.path.startsWith('/konsultasi') ? 'text-white bg-white/10' : '' }}">
+          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ (request.path.startsWith('/konsultasi') || request.path.startsWith('/konsultan-pajak')) ? 'text-white bg-white/10' : '' }}">
             Konsultasi
             <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full pt-3 w-80">
             <div class="bg-surface-white border border-border rounded-2xl shadow-lg p-2">
-              <a href="/konsultasi/online" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
-                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
-                  <span class="icon-[tabler--headset] size-5"></span>
+              <a href="/konsultasi#ada-masalah" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-accent-amber/10 text-accent-amber-dark shrink-0">
+                  <span class="icon-[tabler--message-question] size-5"></span>
                 </span>
                 <span>
-                  <span class="block font-medium text-ink">Konsultasi Online</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Chat/video call terjadwal dengan pendamping</span>
+                  <span class="block font-medium text-ink">Ada Masalah Koperasi?</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Ceritakan kendala, kami arahkan layanannya</span>
                 </span>
               </a>
-              <a href="/konsultasi/panggil-pelatih" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+              <a href="/konsultasi#art" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
                 <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
-                  <span class="icon-[tabler--map-pin] size-5"></span>
+                  <span class="icon-[tabler--book] size-5"></span>
                 </span>
                 <span>
-                  <span class="block font-medium text-ink">Panggil Pelatih</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Pelatih datang langsung ke lokasi koperasi</span>
+                  <span class="block font-medium text-ink">ART</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Anggaran Rumah Tangga koperasi</span>
                 </span>
               </a>
-              <a href="/konsultasi/laporan-keuangan" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+              <a href="/konsultasi#persus" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
                 <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
-                  <span class="icon-[tabler--report-money] size-5"></span>
+                  <span class="icon-[tabler--gavel] size-5"></span>
                 </span>
                 <span>
-                  <span class="block font-medium text-ink">Laporan Keuangan Koperasi</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Pendampingan penyusunan laporan, bukan cuma diajarkan</span>
+                  <span class="block font-medium text-ink">Persus</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Peraturan khusus internal koperasi</span>
+                </span>
+              </a>
+              <a href="/konsultasi#sop" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
+                  <span class="icon-[tabler--list-check] size-5"></span>
+                </span>
+                <span>
+                  <span class="block font-medium text-ink">SOP</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Standar Operasional Prosedur</span>
+                </span>
+              </a>
+              <a href="/konsultasi#pelaporan-rat" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
+                  <span class="icon-[tabler--calendar-event] size-5"></span>
+                </span>
+                <span>
+                  <span class="block font-medium text-ink">Pelaporan RAT</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Pendampingan Rapat Anggota Tahunan</span>
+                </span>
+              </a>
+              <a href="/konsultan-pajak" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
+                  <span class="icon-[tabler--calculator] size-5"></span>
+                </span>
+                <span>
+                  <span class="block font-medium text-ink">Konsultan Pajak</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Pelaporan &amp; konsultasi pajak koperasi</span>
                 </span>
               </a>
             </div>
@@ -89,46 +112,82 @@
         </div>
 
         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ request.path.startsWith('/legalitas') ? 'text-white bg-white/10' : '' }}">
-            Legalitas &amp; Pembiayaan
+          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ (request.path.startsWith('/legalitas') || request.path.startsWith('/izin-ksp-usp') || request.path.startsWith('/pembiayaan')) ? 'text-white bg-white/10' : '' }}">
+            Legalitas &amp; Perizinan
             <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
           </button>
+          {{-- Collapsed to one row per pillar page (was 3 labeled groups / 8 sub-items — too long
+               to scan). Each page has its own in-page quick-nav pills to the finer sub-items. --}}
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full pt-3 w-80">
             <div class="bg-surface-white border border-border rounded-2xl shadow-lg p-2">
-              <a href="/legalitas/pendirian" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+              <a href="/legalitas" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
                 <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
-                  <span class="icon-[tabler--building] size-5"></span>
+                  <span class="icon-[tabler--file-text] size-5"></span>
                 </span>
                 <span>
-                  <span class="block font-medium text-ink">Pendirian Koperasi</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Akta, SK Kemenkumham, NIB dari nol</span>
+                  <span class="block font-medium text-ink">Legalitas Pendirian</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Akta, SK Kemenkumham, NPWP, NIB</span>
                 </span>
               </a>
-              <a href="/legalitas/izin-operasional" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+              <a href="/izin-ksp-usp" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
                 <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
-                  <span class="icon-[tabler--shield-check] size-5"></span>
+                  <span class="icon-[tabler--user-check] size-5"></span>
                 </span>
                 <span>
-                  <span class="block font-medium text-ink">Izin Operasional KSP/USP</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Izin unit/koperasi simpan pinjam</span>
+                  <span class="block font-medium text-ink">Izin KSP/USP</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Syarat kelayakan izin operasional simpan pinjam</span>
                 </span>
               </a>
-              <a href="/legalitas/pembiayaan" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+              <a href="/pembiayaan" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
                 <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
-                  <span class="icon-[tabler--cash] size-5"></span>
+                  <span class="icon-[tabler--coins] size-5"></span>
                 </span>
                 <span>
                   <span class="block font-medium text-ink">Akses Pembiayaan</span>
-                  <span class="block text-xs text-ink-muted mt-0.5">Pendampingan pengajuan ke bank &amp; program pemerintah</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Bank, KUR, sampai LPDB-KUMKM</span>
                 </span>
               </a>
             </div>
           </div>
         </div>
 
-        <a href="/fasilitator" class="px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ request.path.startsWith('/fasilitator') ? 'text-white bg-white/10' : '' }}">Fasilitator</a>
-        <a href="/event" class="px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ request.path.startsWith('/event') ? 'text-white bg-white/10' : '' }}">Event</a>
-        <a href="/tentang" class="px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ request.path.startsWith('/tentang') ? 'text-white bg-white/10' : '' }}">Tentang</a>
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ (request.path.startsWith('/fasilitator') || request.path.startsWith('/event') || request.path.startsWith('/tentang')) ? 'text-white bg-white/10' : '' }}">
+            Tentang Kami
+            <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute right-0 top-full pt-3 w-80">
+            <div class="bg-surface-white border border-border rounded-2xl shadow-lg p-2">
+              <a href="/fasilitator" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
+                  <span class="icon-[tabler--users-group] size-5"></span>
+                </span>
+                <span>
+                  <span class="block font-medium text-ink">Fasilitator</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Profil pelatih &amp; konsultan berpengalaman</span>
+                </span>
+              </a>
+              <a href="/event" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
+                  <span class="icon-[tabler--calendar-event] size-5"></span>
+                </span>
+                <span>
+                  <span class="block font-medium text-ink">Event</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Kalender pelatihan &amp; webinar terdekat</span>
+                </span>
+              </a>
+              <a href="/tentang" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
+                  <span class="icon-[tabler--info-circle] size-5"></span>
+                </span>
+                <span>
+                  <span class="block font-medium text-ink">Tentang Aloka</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Visi, misi, dan cerita singkat Aloka</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <div class="flex items-center gap-2 pl-2 ml-1 border-l border-white/15">
@@ -150,14 +209,11 @@
             <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
           </button>
           <div x-show="open" x-cloak class="pl-1 pb-2 flex flex-col gap-1">
-            <a href="/akademi/kelas-online" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--device-laptop] size-4 text-brand-blue"></span> Kelas Online
+            <a href="/kelas-elearning" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--device-laptop] size-4 text-brand-blue"></span> Kelas E-Learning
             </a>
-            <a href="/akademi/sertifikasi" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--certificate] size-4 text-brand-blue"></span> Sertifikasi
-            </a>
-            <a href="/akademi/webinar" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--presentation] size-4 text-brand-blue"></span> Webinar
+            <a href="/sertifikasi-bnsp" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--certificate] size-4 text-brand-blue"></span> Sertifikasi Kompetensi BNSP
             </a>
           </div>
         </div>
@@ -168,39 +224,63 @@
             <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
           </button>
           <div x-show="open" x-cloak class="pl-1 pb-2 flex flex-col gap-1">
-            <a href="/konsultasi/online" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--headset] size-4 text-brand-blue"></span> Konsultasi Online
+            <a href="/konsultasi#ada-masalah" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--message-question] size-4 text-brand-blue"></span> Ada Masalah Koperasi?
             </a>
-            <a href="/konsultasi/panggil-pelatih" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--map-pin] size-4 text-brand-blue"></span> Panggil Pelatih
+            <a href="/konsultasi#art" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--book] size-4 text-brand-blue"></span> ART
             </a>
-            <a href="/konsultasi/laporan-keuangan" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--report-money] size-4 text-brand-blue"></span> Laporan Keuangan Koperasi
+            <a href="/konsultasi#persus" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--gavel] size-4 text-brand-blue"></span> Persus
+            </a>
+            <a href="/konsultasi#sop" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--list-check] size-4 text-brand-blue"></span> SOP
+            </a>
+            <a href="/konsultasi#pelaporan-rat" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--calendar-event] size-4 text-brand-blue"></span> Pelaporan RAT
+            </a>
+            <a href="/konsultan-pajak" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--calculator] size-4 text-brand-blue"></span> Konsultan Pajak
             </a>
           </div>
         </div>
 
         <div x-data="{ open: false }">
           <button type="button" @click="open = !open" class="w-full flex items-center justify-between py-2.5 font-medium text-ink">
-            Legalitas &amp; Pembiayaan
+            Legalitas &amp; Perizinan
             <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
           </button>
           <div x-show="open" x-cloak class="pl-1 pb-2 flex flex-col gap-1">
-            <a href="/legalitas/pendirian" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--building] size-4 text-brand-blue"></span> Pendirian Koperasi
+            <a href="/legalitas" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--file-text] size-4 text-brand-blue"></span> Legalitas Pendirian
             </a>
-            <a href="/legalitas/izin-operasional" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--shield-check] size-4 text-brand-blue"></span> Izin Operasional KSP/USP
+            <a href="/izin-ksp-usp" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--user-check] size-4 text-brand-blue"></span> Izin KSP/USP
             </a>
-            <a href="/legalitas/pembiayaan" class="flex items-center gap-2.5 py-2 text-ink-muted">
-              <span class="icon-[tabler--cash] size-4 text-brand-blue"></span> Akses Pembiayaan
+            <a href="/pembiayaan" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--coins] size-4 text-brand-blue"></span> Akses Pembiayaan
             </a>
           </div>
         </div>
 
-        <a href="/fasilitator" class="py-2.5 font-medium text-ink">Fasilitator</a>
-        <a href="/event" class="py-2.5 font-medium text-ink">Event</a>
-        <a href="/tentang" class="py-2.5 font-medium text-ink">Tentang Aloka</a>
+        <div x-data="{ open: false }">
+          <button type="button" @click="open = !open" class="w-full flex items-center justify-between py-2.5 font-medium text-ink">
+            Tentang Kami
+            <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
+          </button>
+          <div x-show="open" x-cloak class="pl-1 pb-2 flex flex-col gap-1">
+            <a href="/fasilitator" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--users-group] size-4 text-brand-blue"></span> Fasilitator
+            </a>
+            <a href="/event" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--calendar-event] size-4 text-brand-blue"></span> Event
+            </a>
+            <a href="/tentang" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--info-circle] size-4 text-brand-blue"></span> Tentang Aloka
+            </a>
+          </div>
+        </div>
+
         <div class="flex flex-col gap-2 mt-3 pt-3 border-t border-border">
           <a href="/masuk" class="text-center px-5 py-2.5 rounded-full text-sm font-medium text-brand-blue border border-brand-blue">Masuk</a>
           <a href="/daftar" class="text-center px-5 py-2.5 rounded-full text-sm font-semibold text-brand-navy bg-accent-amber">Daftar Sekarang</a>

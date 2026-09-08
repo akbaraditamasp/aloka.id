@@ -2,13 +2,14 @@
   <div class="max-w-7xl mx-auto px-4 md:px-6 py-16">
     <div class="grid sm:grid-cols-2 lg:grid-cols-6 gap-10">
       <div class="sm:col-span-2 lg:col-span-2">
-        <a href="/" class="flex items-center gap-2">
+        <a href="/" class="flex items-center gap-2.5">
           {{-- STYLE.md §2: a plain monochrome mark is used when the gradient doesn't reproduce well —
                here it blends into the navy footer background, so render it plain white via filter
                instead of needing a separate asset. --}}
-          <img src="{{ vite.static('logo.png') }}" alt="" class="h-8 w-8" style="filter: brightness(0) invert(1);" />
-          <span class="font-display font-bold text-white text-xl">aloka</span>
+          <img src="{{ vite.static('logo.png') }}" alt="" class="h-12 w-12 -my-2" style="filter: brightness(0) invert(1);" />
+          <span class="font-display font-bold text-white text-2xl">aloka</span>
         </a>
+        <p class="mt-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white/50">Lebih Objektif, Kredibel &amp; Akuntabel</p>
         <p class="mt-4 text-sm leading-relaxed max-w-xs">
           Platform digital konsultan &amp; edukasi perkoperasian — menemani koperasi Anda menuju legal, sehat keuangan, dan bankable.
         </p>
@@ -24,35 +25,38 @@
         </div>
       </div>
 
+      {{-- Mirrors the header's 4 consolidated dropdowns, with a short curated set of links per
+           group (not every anchor) so the footer stays a quick-scan summary, not a full sitemap. --}}
       <div>
         <p class="font-display font-semibold text-white text-sm">Akademi</p>
         <div class="mt-4 flex flex-col gap-2.5 text-sm">
-          <a href="/akademi/kelas-online" class="hover:text-white transition-colors">Kelas Online</a>
-          <a href="/akademi/sertifikasi" class="hover:text-white transition-colors">Sertifikasi</a>
-          <a href="/akademi/webinar" class="hover:text-white transition-colors">Webinar</a>
+          <a href="/kelas-elearning" class="hover:text-white transition-colors">Kelas E-Learning</a>
+          <a href="/sertifikasi-bnsp" class="hover:text-white transition-colors">Sertifikasi BNSP</a>
         </div>
       </div>
 
       <div>
         <p class="font-display font-semibold text-white text-sm">Konsultasi</p>
         <div class="mt-4 flex flex-col gap-2.5 text-sm">
-          <a href="/konsultasi/online" class="hover:text-white transition-colors">Konsultasi Online</a>
-          <a href="/konsultasi/panggil-pelatih" class="hover:text-white transition-colors">Panggil Pelatih</a>
-          <a href="/konsultasi/laporan-keuangan" class="hover:text-white transition-colors">Laporan Keuangan Koperasi</a>
+          <a href="/konsultasi#ada-masalah" class="hover:text-white transition-colors">Ada Masalah Koperasi?</a>
+          <a href="/konsultasi#art" class="hover:text-white transition-colors">ART &amp; Persus</a>
+          <a href="/konsultasi#pelaporan-rat" class="hover:text-white transition-colors">Pelaporan RAT</a>
+          <a href="/konsultan-pajak" class="hover:text-white transition-colors">Konsultan Pajak</a>
         </div>
       </div>
 
       <div>
-        <p class="font-display font-semibold text-white text-sm">Legalitas &amp; Pembiayaan</p>
+        <p class="font-display font-semibold text-white text-sm">Legalitas &amp; Perizinan</p>
         <div class="mt-4 flex flex-col gap-2.5 text-sm">
-          <a href="/legalitas/pendirian" class="hover:text-white transition-colors">Pendirian Koperasi</a>
-          <a href="/legalitas/izin-operasional" class="hover:text-white transition-colors">Izin Operasional KSP/USP</a>
-          <a href="/legalitas/pembiayaan" class="hover:text-white transition-colors">Akses Pembiayaan</a>
+          <a href="/legalitas#akta" class="hover:text-white transition-colors">Akta &amp; SK Kemenkumham</a>
+          <a href="/legalitas#nib" class="hover:text-white transition-colors">NIB</a>
+          <a href="/izin-ksp-usp" class="hover:text-white transition-colors">Izin KSP/USP</a>
+          <a href="/pembiayaan" class="hover:text-white transition-colors">Akses Pembiayaan</a>
         </div>
       </div>
 
       <div>
-        <p class="font-display font-semibold text-white text-sm">Perusahaan</p>
+        <p class="font-display font-semibold text-white text-sm">Tentang Kami</p>
         <div class="mt-4 flex flex-col gap-2.5 text-sm">
           <a href="/fasilitator" class="hover:text-white transition-colors">Fasilitator</a>
           <a href="/event" class="hover:text-white transition-colors">Event</a>

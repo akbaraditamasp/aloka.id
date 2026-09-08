@@ -211,36 +211,20 @@
       </div>
     </section>
 
-    <section class="py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <div class="relative overflow-hidden rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center" style="background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,173,238,0.45) 0%, rgba(0,173,238,0.25) 45%, rgba(0,173,238,0.1) 75%, transparent 100%), linear-gradient(180deg, #0b0f30 0%, #14204f 40%, #1D4282 70%, #242A6A 100%);">
-          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -top-16 -right-16 md:-top-24 md:-right-24 w-72 md:w-96" />
-          <img src="{{ vite.static('ornament-hero-abstract.svg') }}" alt="" class="pointer-events-none select-none absolute -bottom-16 -left-16 md:-bottom-24 md:-left-24 w-72 md:w-96 rotate-180" />
-          <div class="relative">
-            <span class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber">
-              <span class="icon-[tabler--coins] size-4"></span>
-              Bankable, Bukan Sekadar Legal
-            </span>
-            <h2 class="mt-4 font-display font-extrabold text-3xl md:text-5xl text-white leading-tight max-w-2xl mx-auto">
-              Siap Ajukan Pembiayaan untuk Koperasi Anda?
-            </h2>
-            <p class="mt-4 text-lg leading-relaxed text-white/80 max-w-xl mx-auto">
-              Konsultasi gratis — kami bantu cek kesiapan dokumen koperasi Anda sebelum mengajukan pembiayaan.
-            </p>
-            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20akses%20pembiayaan%20koperasi" class="inline-flex items-center gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
-                Konsultasi Gratis
-                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
-                  <span class="icon-[tabler--arrow-right] size-4"></span>
-                </span>
-              </a>
-              <a href="/" class="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
-                Kembali ke Beranda
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    @component('components/closing-cta', {
+      eyebrow: 'Bankable, Bukan Sekadar Legal',
+      body: 'Konsultasi gratis — kami bantu cek kesiapan dokumen koperasi Anda sebelum mengajukan pembiayaan.',
+      primaryHref: 'https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20akses%20pembiayaan%20koperasi',
+      primaryLabel: 'Konsultasi Gratis',
+      secondaryHref: '/',
+      secondaryLabel: 'Kembali ke Beranda',
+    })
+      @slot('icon')
+        <span class="icon-[tabler--coins] size-4"></span>
+      @end
+      @slot('heading')
+        Siap Ajukan Pembiayaan untuk Koperasi Anda?
+      @end
+    @end
   @end
 @end

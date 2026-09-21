@@ -145,7 +145,7 @@
       <div class="relative max-w-7xl mx-auto px-4 md:px-6">
         <div class="max-w-2xl">
           {{-- Dropped the hardcoded "6 Layanan Utama" label — the pillar count has already
-               changed once (now 7 pages incl. Konsultan Pajak) and will keep moving as new
+               changed once (now 8 pages incl. Konsultan Pajak and Laporan Keuangan) and will keep moving as new
                pillars are added, so the eyebrow stays a plain category label instead. --}}
           <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Layanan Utama</span>
           <h2 class="mt-3 font-display font-bold text-3xl md:text-4xl text-ink">
@@ -154,7 +154,7 @@
             Anda
           </h2>
           <p class="mt-4 text-lg leading-relaxed text-ink-muted">
-            Dari kelas online dan sertifikasi, konsultasi tata kelola, legalitas dan perizinan, akses pembiayaan, sampai konsultan pajak — semua tersedia di Aloka.
+            Dari kelas online dan sertifikasi, konsultasi tata kelola, legalitas dan perizinan, akses pembiayaan, konsultan pajak, sampai laporan keuangan — semua tersedia di Aloka.
           </p>
         </div>
 
@@ -244,29 +244,52 @@
           </a>
         </div>
 
-        {{-- Konsultan Pajak is the 7th pillar — a genuinely new service, not part of the original
-             6. Rather than force it into an awkward orphan slot in the 3-col grid above, it gets
-             its own full-width banner row so the "new" positioning reads as deliberate. --}}
-        <a href="/konsultan-pajak" class="group mt-6 flex flex-col sm:flex-row sm:items-center gap-6 rounded-2xl bg-brand-navy p-8 shadow-sm transition-all duration-300 hover:shadow-xl">
-          <span class="flex items-center justify-center size-14 rounded-xl bg-white/10 text-brand-sky shrink-0">
-            <span class="icon-[tabler--calculator] size-7"></span>
-          </span>
-          <div class="flex-1">
-            <div class="flex items-center gap-2.5">
-              <h3 class="font-display font-semibold text-xl text-white">Konsultan Pajak</h3>
-              <span class="rounded-full bg-accent-amber px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-brand-navy">Baru</span>
-            </div>
-            <p class="mt-2 text-sm leading-relaxed text-white/70">
-              Pelaporan pajak tahunan, konsultasi pajak SHU, PPN unit usaha, sampai pendampingan pemeriksaan pajak koperasi.
-            </p>
-          </div>
-          <span class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
-            Konsultasi Pajak Gratis
-            <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
-              <span class="icon-[tabler--arrow-right] size-4"></span>
+        {{-- Konsultan Pajak (7th) and Laporan Keuangan (8th) are newer pillars, not part of the
+             original 6. Rather than force them into orphan slots in the 3-col grid above, they
+             share a 2-col banner row so the "new" positioning reads as deliberate. --}}
+        <div class="mt-6 grid md:grid-cols-2 gap-6">
+          <a href="/konsultan-pajak" class="group flex flex-col gap-6 rounded-2xl bg-brand-navy p-8 shadow-sm transition-all duration-300 hover:shadow-xl">
+            <span class="flex items-center justify-center size-14 rounded-xl bg-white/10 text-brand-sky shrink-0">
+              <span class="icon-[tabler--calculator] size-7"></span>
             </span>
-          </span>
-        </a>
+            <div class="flex-1">
+              <div class="flex items-center gap-2.5">
+                <h3 class="font-display font-semibold text-xl text-white">Konsultan Pajak</h3>
+                <span class="rounded-full bg-accent-amber px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-brand-navy">Baru</span>
+              </div>
+              <p class="mt-2 text-sm leading-relaxed text-white/70">
+                Pelaporan pajak tahunan, konsultasi pajak SHU, PPN unit usaha, sampai pendampingan pemeriksaan pajak koperasi.
+              </p>
+            </div>
+            <span class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
+              Konsultasi Pajak Gratis
+              <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+                <span class="icon-[tabler--arrow-right] size-4"></span>
+              </span>
+            </span>
+          </a>
+
+          <a href="/laporan-keuangan" class="group flex flex-col gap-6 rounded-2xl bg-brand-navy p-8 shadow-sm transition-all duration-300 hover:shadow-xl">
+            <span class="flex items-center justify-center size-14 rounded-xl bg-white/10 text-brand-sky shrink-0">
+              <span class="icon-[tabler--chart-bar] size-7"></span>
+            </span>
+            <div class="flex-1">
+              <div class="flex items-center gap-2.5">
+                <h3 class="font-display font-semibold text-xl text-white">Laporan Keuangan</h3>
+                <span class="rounded-full bg-accent-amber px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-brand-navy">Baru</span>
+              </div>
+              <p class="mt-2 text-sm leading-relaxed text-white/70">
+                Pembukuan bulanan, laporan keuangan tahunan, sampai perhitungan SHU — siap untuk RAT, pembiayaan, dan pemeriksaan.
+              </p>
+            </div>
+            <span class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
+              Konsultasi Laporan Keuangan
+              <span class="flex items-center justify-center size-8 rounded-full bg-accent-amber text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
+                <span class="icon-[tabler--arrow-right] size-4"></span>
+              </span>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
 

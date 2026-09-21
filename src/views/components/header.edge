@@ -47,7 +47,7 @@
         </div>
 
         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ (request.path.startsWith('/konsultasi') || request.path.startsWith('/konsultan-pajak')) ? 'text-white bg-white/10' : '' }}">
+          <button class="flex items-center gap-1 px-3 py-2 rounded-full hover:bg-white/10 hover:text-white transition-colors {{ (request.path.startsWith('/konsultasi') || request.path.startsWith('/konsultan-pajak') || request.path.startsWith('/laporan-keuangan')) ? 'text-white bg-white/10' : '' }}">
             Konsultasi
             <span class="icon-[tabler--chevron-down] size-4 transition-transform" :class="open && 'rotate-180'"></span>
           </button>
@@ -105,6 +105,15 @@
                 <span>
                   <span class="block font-medium text-ink">Konsultan Pajak</span>
                   <span class="block text-xs text-ink-muted mt-0.5">Pelaporan &amp; konsultasi pajak koperasi</span>
+                </span>
+              </a>
+              <a href="/laporan-keuangan" class="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-surface">
+                <span class="flex items-center justify-center size-9 rounded-lg bg-surface text-brand-blue shrink-0">
+                  <span class="icon-[tabler--chart-bar] size-5"></span>
+                </span>
+                <span>
+                  <span class="block font-medium text-ink">Laporan Keuangan</span>
+                  <span class="block text-xs text-ink-muted mt-0.5">Pembukuan, laporan tahunan &amp; SHU</span>
                 </span>
               </a>
             </div>
@@ -241,6 +250,9 @@
             </a>
             <a href="/konsultan-pajak" class="flex items-center gap-2.5 py-2 text-ink-muted">
               <span class="icon-[tabler--calculator] size-4 text-brand-blue"></span> Konsultan Pajak
+            </a>
+            <a href="/laporan-keuangan" class="flex items-center gap-2.5 py-2 text-ink-muted">
+              <span class="icon-[tabler--chart-bar] size-4 text-brand-blue"></span> Laporan Keuangan
             </a>
           </div>
         </div>

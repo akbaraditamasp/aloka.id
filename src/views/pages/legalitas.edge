@@ -1,3 +1,6 @@
+@let(site = await general.get())
+@let(svcRows = (await service.read({ filters: { category: 'LEGALITAS', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
+@let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
 @component('layouts/main', { request })
   @slot('title')
     Legalitas Koperasi — Akta, SK, NPWP &amp; NIB | Aloka
@@ -25,7 +28,7 @@
             </p>
 
             <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
-              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20soal%20legalitas%20koperasi" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+              <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau tanya soal legalitas koperasi') }}" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
                 Konsultasi Legalitas Gratis
                 <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
                   <span class="icon-[tabler--arrow-right] size-4"></span>
@@ -136,7 +139,7 @@
               </div>
             </div>
 
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20akta%20pendirian%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau urus akta pendirian koperasi') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Mulai Urus Akta Pendirian
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -176,7 +179,7 @@
             </div>
             <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
               <span class="text-sm text-ink-muted">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp1.500.000</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">{{ servicePrice(svc['akta']) }}</span>
             </div>
           </div>
         </div>
@@ -222,7 +225,7 @@
             </div>
             <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
               <span class="text-sm text-white/60">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-white tabular-nums">Mulai Rp1.000.000</span>
+              <span class="font-mono text-lg font-bold text-white tabular-nums">{{ servicePrice(svc['sk']) }}</span>
             </div>
           </div>
 
@@ -254,7 +257,7 @@
               </div>
             </div>
 
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20SK%20Kemenkumham%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau urus SK Kemenkumham koperasi') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Mulai Urus SK Kemenkumham
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -293,11 +296,11 @@
         </div>
 
         <div class="mt-8 flex flex-wrap items-center gap-6">
-          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20NPWP%20koperasi" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+          <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau urus NPWP koperasi') }}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
             Mulai Urus NPWP
             <span class="icon-[tabler--arrow-right] size-4"></span>
           </a>
-          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp500.000</span></span>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">{{ servicePrice(svc['npwp']) }}</span></span>
         </div>
       </div>
     </section>
@@ -372,8 +375,8 @@
 
           <div class="flex flex-col justify-center rounded-2xl bg-brand-navy p-8 shadow-sm text-center">
             <p class="font-mono text-sm text-white/60">Paket Lengkap NIB + 5 Izin Turunan</p>
-            <p class="mt-2 font-mono text-2xl font-bold text-white tabular-nums">Mulai Rp5.000.000</p>
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20urus%20NIB%20dan%20izin%20turunannya" class="mt-4 inline-flex items-center justify-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
+            <p class="mt-2 font-mono text-2xl font-bold text-white tabular-nums">{{ servicePrice(svc['nib']) }}</p>
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau urus NIB dan izin turunannya') }}" class="mt-4 inline-flex items-center justify-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
               Ajukan Paket Ini
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -385,7 +388,7 @@
     @component('components/closing-cta', {
       eyebrow: 'Legalitas Beres',
       body: 'Konsultasi gratis dengan tim legalitas Aloka — kami bantu petakan dokumen yang sudah dan belum lengkap.',
-      primaryHref: 'https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20legalitas%20koperasi',
+      primaryHref: waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi legalitas koperasi'),
       primaryLabel: 'Konsultasi Legalitas Gratis',
       secondaryHref: '/',
       secondaryLabel: 'Kembali ke Beranda',

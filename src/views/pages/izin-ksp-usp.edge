@@ -1,3 +1,6 @@
+@let(site = await general.get())
+@let(svcRows = (await service.read({ filters: { category: 'IZIN_KSP_USP', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
+@let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
 @component('layouts/main', { request })
   @slot('title')
     Izin Koperasi Simpan Pinjam / Unit Simpan Pinjam | Aloka
@@ -23,7 +26,7 @@
             </p>
 
             <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
-              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20izin%20operasional%20KSP%2FUSP" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+              <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau tanya izin operasional KSP/USP') }}" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
                 Konsultasi Gratis
                 <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
                   <span class="icon-[tabler--arrow-right] size-4"></span>
@@ -95,7 +98,7 @@
                 Pendampingan sampai dinyatakan lulus
               </div>
             </div>
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20pendampingan%20UKK%20pengurus%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau pendampingan UKK pengurus koperasi') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Ajukan Pendampingan UKK
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -118,7 +121,7 @@
             </div>
             <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
               <span class="text-sm text-ink-muted">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp2.000.000 / orang</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">{{ servicePrice(svc['ukk']) }}</span>
             </div>
           </div>
         </div>
@@ -151,11 +154,11 @@
           </div>
         </div>
         <div class="mt-8 flex flex-wrap items-center gap-6">
-          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20bantuan%20SLIK%20OJK%2FBI%20Checking" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+          <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau bantuan SLIK OJK/BI Checking') }}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
             Ajukan Pengecekan SLIK
             <span class="icon-[tabler--arrow-right] size-4"></span>
           </a>
-          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp300.000 / orang</span></span>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">{{ servicePrice(svc['slik']) }}</span></span>
         </div>
       </div>
     </section>
@@ -181,7 +184,7 @@
             </div>
             <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
               <span class="text-sm text-white/60">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-white tabular-nums">Mulai Rp750.000 / orang</span>
+              <span class="font-mono text-lg font-bold text-white tabular-nums">{{ servicePrice(svc['tidak-pailit']) }}</span>
             </div>
           </div>
           <div class="order-1 lg:order-2">
@@ -192,7 +195,7 @@
             <p class="mt-4 text-base leading-relaxed text-ink-muted">
               Salah satu syarat kelayakan pengurus dan pengawas KSP/USP adalah surat resmi dari Pengadilan Niaga yang menyatakan tidak pernah dinyatakan pailit. Aloka membantu penyiapan berkas dan pengajuannya sampai surat terbit.
             </p>
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20bantuan%20surat%20keterangan%20tidak%20pailit" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau bantuan surat keterangan tidak pailit') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Ajukan Surat Tidak Pailit
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -204,7 +207,7 @@
     @component('components/closing-cta', {
       eyebrow: 'Siap Uji Kelayakan',
       body: 'Konsultasi gratis — kami bantu cek kesiapan pengurus & pengawas koperasi Anda sebelum mengajukan izin operasional.',
-      primaryHref: 'https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20izin%20operasional%20KSP%2FUSP',
+      primaryHref: waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi izin operasional KSP/USP'),
       primaryLabel: 'Konsultasi Gratis',
       secondaryHref: '/',
       secondaryLabel: 'Kembali ke Beranda',

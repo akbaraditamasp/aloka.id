@@ -1,0 +1,39 @@
+{{-- Type pills + upcoming-event list + pagination, shared by /event and /event/tipe/[tipe].
+     Props: `activeType` (an eventTypes() entry or null), `result` (event.read() result), `basePath`.
+     Type is a path segment (own indexable URL); pagination stays a ?page= query. --}}
+<section class="pb-8">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="flex flex-wrap gap-2">
+      <a href="/event" class="rounded-full px-4 py-2 text-sm font-semibold transition-colors {{ !activeType ? 'bg-brand-navy text-white' : 'border border-border font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue' }}">Semua Event</a>
+      @each(t in eventTypes())
+        <a href="/event/tipe/{{ t.slug }}" class="rounded-full px-4 py-2 text-sm font-semibold transition-colors {{ activeType && activeType.code === t.code ? 'bg-brand-navy text-white' : 'border border-border font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue' }}">{{ t.label }}</a>
+      @end
+    </div>
+  </div>
+</section>
+
+<section class="pb-16 md:pb-24">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    @if(result.data.length)
+      <div class="flex flex-col divide-y divide-border rounded-2xl border border-border bg-white">
+        @each(item in result.data)
+          @!component('components/event-row', { item })
+        @end
+      </div>
+
+      @if(result.meta.pageCount > 1)
+        <div class="mt-12 flex items-center justify-center gap-2">
+          @each(p in Array.from({ length: result.meta.pageCount }, (_, i) => i + 1))
+            <a href="{{ p === 1 ? basePath : basePath + '?page=' + p }}" class="flex items-center justify-center size-9 rounded-full text-sm font-semibold transition-colors {{ p === result.meta.page ? 'bg-brand-blue text-white' : 'font-medium text-ink-muted hover:text-brand-blue' }}">{{ p }}</a>
+          @end
+        </div>
+      @end
+    @else
+      <div class="rounded-2xl border border-border bg-surface p-10 text-center">
+        <span class="icon-[tabler--calendar-event] size-8 text-brand-blue"></span>
+        <p class="mt-4 font-display font-semibold text-lg text-ink">Belum ada jadwal mendatang</p>
+        <p class="mt-2 text-sm text-ink-muted">Jadwal baru segera diumumkan. Kembali lagi nanti atau tanyakan lewat WhatsApp.</p>
+      </div>
+    @end
+  </div>
+</section>

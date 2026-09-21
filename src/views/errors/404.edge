@@ -1,3 +1,4 @@
+@let(site = await general.get())
 {{-- Rendered directly by njin's error handler (renderHttpError), not the normal page-route
      pipeline — only `statusCode`/`message` locals are passed in, so `request` isn't a global
      here like it is on regular pages. header.edge reads request.path for active-link styling,
@@ -30,7 +31,7 @@
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </span>
           </a>
-          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+          <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau tanya') }}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
             Hubungi Tim Aloka
             <span class="icon-[tabler--arrow-right] size-4"></span>
           </a>

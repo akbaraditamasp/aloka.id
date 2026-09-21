@@ -1,0 +1,40 @@
+{{-- Category pills + course grid + pagination, shared by /kelas-elearning and
+     /kelas-elearning/kategori/[kategori]. Props: `activeCategory` (a courseCategories() entry or null),
+     `result` (course.read() result), `basePath` (path the ?page= links hang off of).
+     Category is a path segment (own indexable URL); pagination stays a ?page= query. --}}
+<section class="pb-8">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="flex flex-wrap gap-2">
+      <a href="/kelas-elearning" class="rounded-full px-4 py-2 text-sm font-semibold transition-colors {{ !activeCategory ? 'bg-brand-navy text-white' : 'border border-border font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue' }}">Semua Kelas</a>
+      @each(c in courseCategories())
+        <a href="/kelas-elearning/kategori/{{ c.slug }}" class="rounded-full px-4 py-2 text-sm font-semibold transition-colors {{ activeCategory && activeCategory.code === c.code ? 'bg-brand-navy text-white' : 'border border-border font-medium text-ink-muted hover:border-brand-blue/40 hover:text-brand-blue' }}">{{ c.label }}</a>
+      @end
+    </div>
+  </div>
+</section>
+
+<section class="pb-16 md:pb-24">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    @if(result.data.length)
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        @each((item, index) in result.data)
+          @!component('components/course-card', { item, index })
+        @end
+      </div>
+
+      @if(result.meta.pageCount > 1)
+        <div class="mt-12 flex items-center justify-center gap-2">
+          @each(p in Array.from({ length: result.meta.pageCount }, (_, i) => i + 1))
+            <a href="{{ p === 1 ? basePath : basePath + '?page=' + p }}" class="flex items-center justify-center size-9 rounded-full text-sm font-semibold transition-colors {{ p === result.meta.page ? 'bg-brand-blue text-white' : 'font-medium text-ink-muted hover:text-brand-blue' }}">{{ p }}</a>
+          @end
+        </div>
+      @end
+    @else
+      <div class="rounded-2xl border border-border bg-surface p-10 text-center">
+        <span class="icon-[tabler--device-laptop] size-8 text-brand-blue"></span>
+        <p class="mt-4 font-display font-semibold text-lg text-ink">Belum ada kelas di kategori ini</p>
+        <p class="mt-2 text-sm text-ink-muted">Kelas baru segera hadir. Coba kategori lain atau kembali lagi nanti.</p>
+      </div>
+    @end
+  </div>
+</section>

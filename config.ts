@@ -29,25 +29,45 @@ export default defineConfig({
     }),
   },
   models: [
-    // Register your models here, e.g.:
-    // () => import("./src/models/post"),
+    () => import("./src/models/facilitator"),
+    () => import("./src/models/testimonial"),
+    () => import("./src/models/course"),
+    () => import("./src/models/certification"),
+    () => import("./src/models/event"),
+    () => import("./src/models/service"),
+    () => import("./src/models/inquiry"),
+    () => import("./src/models/order"),
+    () => import("./src/models/payment"),
+    () => import("./src/models/webhook_log"),
   ],
   vars: [
-    // Singleton settings objects (site name, SEO meta, ...), e.g.:
-    // () => import("./src/vars/general"),
+    () => import("./src/vars/general"),
+    () => import("./src/vars/stats"),
+    () => import("./src/vars/about"),
+    () => import("./src/vars/seo"),
+    () => import("./src/vars/payment_settings"),
   ],
   helpers: [
-    // Stateless functions exposed as Edge template globals, e.g.:
-    // () => import("./src/helpers/format_date"),
+    () => import("./src/helpers/format_rupiah"),
+    () => import("./src/helpers/format_number"),
+    () => import("./src/helpers/format_date"),
+    () => import("./src/helpers/wa_link"),
+    () => import("./src/helpers/option_label"),
+    () => import("./src/helpers/course_categories"),
+    () => import("./src/helpers/event_types"),
+    () => import("./src/helpers/event_time"),
+    () => import("./src/helpers/service_price"),
+    () => import("./src/helpers/inquiry_topics"),
+  ],
+  hooks: [
+    // Model hooks that fan out to the event bus (inquiry/order created).
+    () => import("./src/events/hooks/dispatch"),
   ],
   events: [
     // Listener files — imported here so their .listen() calls run at boot, e.g.:
     // () => import("./src/events/listeners/send_receipt"),
   ],
-  routes: [
-    // Custom Elysia routes, e.g.:
-    // () => import("./src/routes/webhook"),
-  ],
+  routes: [() => import("./src/routes/inquiry")],
   plugins: [
     // Installable bundles of models/vars/hooks/events/routes, e.g.:
     // myPlugin({ apiKey: process.env.MY_PLUGIN_KEY! }),

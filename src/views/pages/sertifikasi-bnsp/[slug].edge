@@ -1,0 +1,86 @@
+@let(found = await certification.read({ filters: { slug: params.slug, status: 'PUBLISH' }, limit: 1 }))
+@let(item = found.data[0])
+@if(!item)
+  {{ abort(404) }}
+@end
+@let(site = await general.get())
+@component('layouts/main', { request })
+  @slot('title')
+    {{ item.name }} | Sertifikasi Kompetensi BNSP Aloka
+  @end
+
+  @slot('main')
+    <section class="pt-10 md:pt-16 pb-16 md:pb-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <a href="/sertifikasi-bnsp" class="hover:text-brand-blue transition-colors">Sertifikasi BNSP</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">{{ item.name }}</span>
+        </nav>
+
+        <div class="mt-10 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start">
+          <div class="lg:col-span-2">
+            <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Skema Sertifikasi</span>
+            <h1 class="mt-4 font-display font-extrabold text-3xl md:text-4xl leading-tight tracking-tight text-brand-navy">{{ item.name }}</h1>
+            <p class="mt-3 text-sm font-semibold text-brand-blue">Untuk: {{ item.targetRole }}</p>
+            <p class="mt-4 text-lg leading-relaxed text-ink-muted">{{ item.summary }}</p>
+
+            @if(item.competencyUnits && item.competencyUnits.length)
+              <div class="mt-10">
+                <h2 class="font-display font-bold text-2xl text-ink">Unit Kompetensi</h2>
+                <div class="mt-5 flex flex-col gap-3">
+                  @each(unit in item.competencyUnits)
+                    <div class="flex items-start gap-3">
+                      <span class="icon-[tabler--circle-check] size-5 text-success shrink-0 mt-0.5"></span>
+                      <p class="text-ink-muted">{{ unit }}</p>
+                    </div>
+                  @end
+                </div>
+              </div>
+            @end
+
+            @if(item.requirements && item.requirements.length)
+              <div class="mt-10">
+                <h2 class="font-display font-bold text-2xl text-ink">Persyaratan Peserta</h2>
+                <div class="mt-5 flex flex-col gap-3">
+                  @each(req in item.requirements)
+                    <div class="flex items-start gap-3">
+                      <span class="icon-[tabler--file-check] size-5 text-brand-blue shrink-0 mt-0.5"></span>
+                      <p class="text-ink-muted">{{ req }}</p>
+                    </div>
+                  @end
+                </div>
+              </div>
+            @end
+
+            @if(item.description)
+              <div class="mt-10">
+                <h2 class="font-display font-bold text-2xl text-ink">Tentang Skema Ini</h2>
+                <div class="mt-4 leading-relaxed text-ink-muted [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">{{{ item.description }}}</div>
+              </div>
+            @end
+          </div>
+
+          <aside class="lg:sticky lg:top-24 rounded-2xl border border-border bg-white p-8 shadow-lg">
+            <p class="text-sm text-ink-muted">Biaya skema</p>
+            <p class="mt-1 font-mono text-3xl font-bold text-ink tabular-nums">{{ formatRupiah(item.price) }}</p>
+
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau daftar sertifikasi ' + item.name) }}" class="mt-6 flex items-center justify-between gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
+              Daftar Skema Ini
+              <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
+                <span class="icon-[tabler--arrow-right] size-4"></span>
+              </span>
+            </a>
+
+            <div class="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-ink-muted">
+              <p class="flex items-center gap-2"><span class="icon-[tabler--certificate] size-4 text-brand-blue"></span> Uji kompetensi oleh asesor</p>
+              <p class="flex items-center gap-2"><span class="icon-[tabler--file-analytics] size-4 text-brand-blue"></span> Try out sebelum ujian resmi</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  @end
+@end

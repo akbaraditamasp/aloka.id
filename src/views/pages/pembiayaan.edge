@@ -1,3 +1,6 @@
+@let(site = await general.get())
+@let(svcRows = (await service.read({ filters: { category: 'PEMBIAYAAN', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
+@let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
 @component('layouts/main', { request })
   @slot('title')
     Pendampingan Akses Pembiayaan Koperasi | Aloka
@@ -23,7 +26,7 @@
             </p>
 
             <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
-              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20akses%20pembiayaan%20koperasi" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+              <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau tanya akses pembiayaan koperasi') }}" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
                 Konsultasi Gratis
                 <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
                   <span class="icon-[tabler--arrow-right] size-4"></span>
@@ -101,7 +104,7 @@
                 Follow-up sampai keputusan turun
               </div>
             </div>
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20pendampingan%20pengajuan%20pembiayaan%20ke%20bank" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau pendampingan pengajuan pembiayaan ke bank') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Ajukan Pendampingan
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -128,7 +131,7 @@
             </div>
             <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
               <span class="text-sm text-ink-muted">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp2.000.000</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">{{ servicePrice(svc['bank']) }}</span>
             </div>
           </div>
         </div>
@@ -156,7 +159,7 @@
             </div>
             <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
               <span class="text-sm text-white/60">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-white tabular-nums">Mulai Rp2.000.000</span>
+              <span class="font-mono text-lg font-bold text-white tabular-nums">{{ servicePrice(svc['kur']) }}</span>
             </div>
           </div>
           <div class="order-1 lg:order-2">
@@ -167,7 +170,7 @@
             <p class="mt-4 text-base leading-relaxed text-ink-muted">
               KUR (Kredit Usaha Rakyat) adalah program pembiayaan bersubsidi bunga dari pemerintah untuk usaha produktif, termasuk unit usaha koperasi. Aloka membantu memetakan skema yang sesuai dan menyiapkan seluruh syarat pengajuannya.
             </p>
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20pengajuan%20KUR%20untuk%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau tanya pengajuan KUR untuk koperasi') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Konsultasi KUR Koperasi
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -202,11 +205,11 @@
           </div>
         </div>
         <div class="mt-8 flex flex-wrap items-center gap-6">
-          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20tanya%20pengajuan%20LPDB-KUMKM%20koperasi" class="inline-flex items-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
+          <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau tanya pengajuan LPDB-KUMKM koperasi') }}" class="inline-flex items-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
             Ajukan Pendampingan LPDB
             <span class="icon-[tabler--arrow-right] size-4"></span>
           </a>
-          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp2.500.000</span></span>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">{{ servicePrice(svc['lpdb']) }}</span></span>
         </div>
       </div>
     </section>
@@ -214,7 +217,7 @@
     @component('components/closing-cta', {
       eyebrow: 'Bankable, Bukan Sekadar Legal',
       body: 'Konsultasi gratis — kami bantu cek kesiapan dokumen koperasi Anda sebelum mengajukan pembiayaan.',
-      primaryHref: 'https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20akses%20pembiayaan%20koperasi',
+      primaryHref: waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi akses pembiayaan koperasi'),
       primaryLabel: 'Konsultasi Gratis',
       secondaryHref: '/',
       secondaryLabel: 'Kembali ke Beranda',

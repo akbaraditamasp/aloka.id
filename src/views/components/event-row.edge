@@ -1,0 +1,30 @@
+{{-- One upcoming-event row (date tile + title + format/venue/time). Shared by the homepage strip and
+     the /event catalog. Prop: `item` (an event record). Mode icons are literal class strings so
+     Tailwind's scanner sees them. --}}
+<a href="/event/{{ item.slug }}" class="group flex flex-col sm:flex-row sm:items-center gap-5 p-6 md:p-8 transition-colors hover:bg-surface">
+  <div class="flex items-center justify-center rounded-2xl bg-brand-navy text-white size-16 shrink-0">
+    <div class="text-center">
+      <p class="font-mono text-xl font-bold leading-none tabular-nums">{{ formatDate(item.startAt, 'day') }}</p>
+      <p class="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/70">{{ formatDate(item.startAt, 'month') }}</p>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="rounded-full bg-surface px-3 py-1 text-xs font-semibold text-brand-blue">{{ optionLabel('eventType', item.type) }}</span>
+      <span class="font-mono text-xs font-bold text-ink-muted tabular-nums">{{ item.price > 0 ? formatRupiah(item.price) : 'Gratis' }}</span>
+    </div>
+    <h3 class="mt-2 font-display font-semibold text-lg text-ink">{{ item.title }}</h3>
+    <p class="mt-1 flex items-center gap-1.5 text-sm text-ink-muted">
+      @if(item.mode === 'ONLINE')
+        <span class="icon-[tabler--video] size-4"></span>
+      @else
+        <span class="icon-[tabler--map-pin] size-4"></span>
+      @end
+      {{ optionLabel('eventMode', item.mode) }}{{ item.venue ? ' — ' + item.venue : '' }} · {{ eventTime(item.startAt, item.endAt) }}
+    </p>
+  </div>
+  <div class="flex items-center gap-1.5 text-sm font-semibold text-brand-blue shrink-0">
+    <span class="sm:hidden">Lihat</span>
+    <span class="icon-[tabler--arrow-right] size-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+  </div>
+</a>

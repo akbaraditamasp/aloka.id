@@ -1,3 +1,6 @@
+@let(site = await general.get())
+@let(svcRows = (await service.read({ filters: { category: 'KONSULTASI', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
+@let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
 @component('layouts/main', { request })
   @slot('title')
     Konsultasi Koperasi — ART, Persus, SOP &amp; Pelaporan RAT | Aloka
@@ -23,7 +26,7 @@
             </p>
 
             <div class="mt-8 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-5">
-              <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20koperasi" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
+              <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi koperasi') }}" class="group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-semibold text-white shadow-[0_15px_35px_-10px_rgba(19,105,169,0.55)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-12px_rgba(0,173,238,0.6)]" style="background: linear-gradient(160deg, #00ADEE 0%, #1369A9 45%, #1D4282 75%, #242A6A 100%);">
                 Konsultasi Gratis
                 <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy transition-transform duration-300 group-hover:translate-x-1">
                   <span class="icon-[tabler--arrow-right] size-4"></span>
@@ -125,7 +128,7 @@
         </div>
 
         <p class="mt-6 text-sm text-ink-muted">
-          Kendala lain di luar daftar ini? <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20koperasi%20saya%20punya%20kendala%20di%20luar%20daftar%20layanan" class="font-semibold text-brand-blue hover:text-brand-indigo transition-colors">Ceritakan langsung ke tim kami</a>.
+          Kendala lain di luar daftar ini? <a href="{{ waLink(site.whatsapp, 'Halo Aloka, koperasi saya punya kendala di luar daftar layanan') }}" class="font-semibold text-brand-blue hover:text-brand-indigo transition-colors">Ceritakan langsung ke tim kami</a>.
         </p>
       </div>
     </section>
@@ -159,7 +162,7 @@
                 Revisi sampai disetujui anggota
               </div>
             </div>
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20penyusunan%20ART%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi penyusunan ART koperasi') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Konsultasi Penyusunan ART
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -174,7 +177,7 @@
             </div>
             <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
               <span class="text-sm text-ink-muted">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp1.000.000</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">{{ servicePrice(svc['art']) }}</span>
             </div>
           </div>
         </div>
@@ -202,7 +205,7 @@
             </div>
             <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
               <span class="text-sm text-ink-muted">Estimasi biaya</span>
-              <span class="font-mono text-lg font-bold text-ink tabular-nums">Mulai Rp1.000.000 / dokumen</span>
+              <span class="font-mono text-lg font-bold text-ink tabular-nums">{{ servicePrice(svc['persus']) }}</span>
             </div>
           </div>
           <div class="order-1 lg:order-2">
@@ -213,7 +216,7 @@
             <p class="mt-4 text-base leading-relaxed text-ink-muted">
               Persus adalah aturan internal tambahan di luar ART, dibuat untuk unit usaha atau kegiatan spesifik koperasi Anda — misalnya ketentuan bunga simpan pinjam, mekanisme agunan, atau tata cara unit usaha lainnya. Aloka bantu susun Persus yang sesuai kebutuhan spesifik koperasi Anda.
             </p>
-            <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20penyusunan%20Persus%20koperasi" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+            <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi penyusunan Persus koperasi') }}" class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
               Konsultasi Penyusunan Persus
               <span class="icon-[tabler--arrow-right] size-4"></span>
             </a>
@@ -250,11 +253,11 @@
           </div>
         </div>
         <div class="mt-8 flex flex-wrap items-center gap-6">
-          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20penyusunan%20SOP%20koperasi" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
+          <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi penyusunan SOP koperasi') }}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-indigo transition-colors">
             Konsultasi Penyusunan SOP
             <span class="icon-[tabler--arrow-right] size-4"></span>
           </a>
-          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp1.500.000 / paket SOP</span></span>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">{{ servicePrice(svc['sop']) }}</span></span>
         </div>
       </div>
     </section>
@@ -288,11 +291,11 @@
           </div>
         </div>
         <div class="mt-8 flex flex-wrap items-center gap-6">
-          <a href="https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20pendampingan%20pelaporan%20RAT%20koperasi" class="inline-flex items-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
+          <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau pendampingan pelaporan RAT koperasi') }}" class="inline-flex items-center gap-1.5 rounded-full bg-accent-amber px-5 py-2.5 text-sm font-semibold text-brand-navy hover:bg-accent-amber-dark transition-colors">
             Ajukan Pendampingan RAT
             <span class="icon-[tabler--arrow-right] size-4"></span>
           </a>
-          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">Mulai Rp2.000.000 / sesi RAT</span></span>
+          <span class="font-mono text-sm text-ink-muted">Estimasi biaya: <span class="font-bold text-ink">{{ servicePrice(svc['pelaporan-rat']) }}</span></span>
         </div>
       </div>
     </section>
@@ -300,7 +303,7 @@
     @component('components/closing-cta', {
       eyebrow: 'Didampingi, Bukan Sekadar Diajari',
       body: 'Konsultasi gratis dengan pendamping Aloka — kami bantu petakan tata kelola koperasi Anda dari nol.',
-      primaryHref: 'https://wa.me/6281234567890?text=Halo%20Aloka%2C%20saya%20mau%20konsultasi%20tata%20kelola%20koperasi',
+      primaryHref: waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi tata kelola koperasi'),
       primaryLabel: 'Konsultasi Gratis',
       secondaryHref: '/',
       secondaryLabel: 'Kembali ke Beranda',

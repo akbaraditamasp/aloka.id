@@ -1,0 +1,30 @@
+{{-- 2-column package cards (icon + name + summary + "Mulai Rp…") for the pillar pages whose packages
+     come from the `service` model. Prop: `services` (array of service records, already filtered/sorted).
+     Icon/tint pairs are literal class strings so Tailwind's scanner sees them: known slugs get their
+     own icon, anything else rotates through the fallback list. --}}
+@let(tints = ['bg-brand-blue/10 text-brand-blue', 'bg-success/10 text-success', 'bg-accent-amber/10 text-accent-amber-dark', 'bg-brand-indigo/10 text-brand-indigo'])
+@let(icons = { 'spt-tahunan': 'icon-[tabler--report]', 'pajak-shu': 'icon-[tabler--report-money]', 'ppn-efaktur': 'icon-[tabler--file-percent]', 'pemeriksaan-pajak': 'icon-[tabler--scan]', 'laporan-tahunan': 'icon-[tabler--report-analytics]', 'pembukuan-bulanan': 'icon-[tabler--book-2]', 'penyajian-shu': 'icon-[tabler--chart-pie]', 'laporan-pembiayaan': 'icon-[tabler--file-check]' })
+@let(fallbackIcons = ['icon-[tabler--briefcase]', 'icon-[tabler--file-text]', 'icon-[tabler--chart-bar]', 'icon-[tabler--certificate]'])
+@if(services.length)
+  <div class="mt-12 grid md:grid-cols-2 gap-6">
+    @each((s, i) in services)
+      <div class="flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm">
+        <span class="flex items-center justify-center size-12 rounded-xl {{ tints[i % tints.length] }}">
+          <span class="{{ icons[s.slug] || fallbackIcons[i % fallbackIcons.length] }} size-6"></span>
+        </span>
+        <h3 class="mt-6 font-display font-semibold text-xl text-ink">{{ s.name }}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-ink-muted flex-1">{{ s.summary }}</p>
+        <div class="mt-6 pt-6 border-t border-border flex items-center justify-between">
+          <span class="text-sm text-ink-muted">Estimasi biaya</span>
+          <span class="font-mono text-sm font-bold text-ink tabular-nums">{{ servicePrice(s) }}</span>
+        </div>
+      </div>
+    @end
+  </div>
+@else
+  <div class="mt-12 rounded-2xl border border-border bg-white p-10 text-center">
+    <span class="icon-[tabler--briefcase] size-8 text-brand-blue"></span>
+    <p class="mt-4 font-display font-semibold text-lg text-ink">Daftar layanan segera hadir</p>
+    <p class="mt-2 text-sm text-ink-muted">Tanyakan kebutuhan Anda langsung lewat WhatsApp.</p>
+  </div>
+@end

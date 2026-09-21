@@ -1,3 +1,4 @@
+@let(site = await general.get())
 <footer class="bg-ink text-white/70">
   <div class="max-w-7xl mx-auto px-4 md:px-6 py-16">
     <div class="grid sm:grid-cols-2 lg:grid-cols-6 gap-10">
@@ -9,18 +10,18 @@
           <img src="{{ vite.static('logo.png') }}" alt="" class="h-12 w-12 -my-2" style="filter: brightness(0) invert(1);" />
           <span class="font-display font-bold text-white text-2xl">aloka</span>
         </a>
-        <p class="mt-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white/50">Lebih Objektif, Kredibel &amp; Akuntabel</p>
+        <p class="mt-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white/50">{{ site.motto }}</p>
         <p class="mt-4 text-sm leading-relaxed max-w-xs">
-          Platform digital konsultan &amp; edukasi perkoperasian — menemani koperasi Anda menuju legal, sehat keuangan, dan bankable.
+          {{ site.description }}
         </p>
         <div class="mt-6 flex flex-col gap-2.5 text-sm">
-          <a href="https://wa.me/6281234567890" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+          <a href="{{ waLink(site.whatsapp) }}" class="inline-flex items-center gap-2 hover:text-white transition-colors">
             <span class="icon-[tabler--brand-whatsapp] size-4"></span>
-            +62 812-3456-7890
+            +{{ site.whatsapp }}
           </a>
-          <a href="mailto:halo@aloka.id" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+          <a href="mailto:{{ site.email }}" class="inline-flex items-center gap-2 hover:text-white transition-colors">
             <span class="icon-[tabler--mail] size-4"></span>
-            halo@aloka.id
+            {{ site.email }}
           </a>
         </div>
       </div>
@@ -32,6 +33,7 @@
         <div class="mt-4 flex flex-col gap-2.5 text-sm">
           <a href="/kelas-elearning" class="hover:text-white transition-colors">Kelas E-Learning</a>
           <a href="/sertifikasi-bnsp" class="hover:text-white transition-colors">Sertifikasi BNSP</a>
+          <a href="/event/tipe/webinar" class="hover:text-white transition-colors">Webinar</a>
         </div>
       </div>
 
@@ -70,7 +72,7 @@
 
   <div class="border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
-      <p>© {{ new Date().getFullYear() }} Aloka. Seluruh hak cipta dilindungi.</p>
+      <p>© {{ new Date().getFullYear() }} {{ site.siteName }}. Seluruh hak cipta dilindungi.</p>
       <div class="flex items-center gap-4">
         <a href="/masuk" class="hover:text-white transition-colors">Masuk</a>
         <a href="/daftar" class="hover:text-white transition-colors">Daftar Sekarang</a>

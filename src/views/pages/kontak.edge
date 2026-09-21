@@ -1,0 +1,132 @@
+@let(site = await general.get())
+@let(formStatus = query.status)
+@component('layouts/main', { request })
+  @slot('title')
+    Hubungi Aloka — Konsultasi Koperasi | Aloka
+  @end
+
+  @slot('main')
+    <section class="pt-10 md:pt-16 pb-16 md:pb-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">Kontak</span>
+        </nav>
+
+        <div class="mt-8 max-w-2xl">
+          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Kontak</span>
+          <h1 class="mt-4 font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight text-brand-navy">
+            Ceritakan Kebutuhan Koperasi Anda
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-ink-muted">
+            Isi formulir di bawah, atau langsung chat lewat WhatsApp. Tim Aloka akan menghubungi Anda untuk menentukan langkah terbaik — konsultasi awal gratis.
+          </p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start">
+          <div id="form" class="scroll-mt-24 lg:col-span-2">
+            @if(formStatus === 'sent')
+              <div class="mb-6 flex items-start gap-3 rounded-2xl border border-success/30 bg-success/10 p-5">
+                <span class="icon-[tabler--circle-check] size-5 text-success shrink-0 mt-0.5"></span>
+                <p class="text-sm text-ink">Terima kasih, pesan Anda sudah kami terima. Tim Aloka akan menghubungi Anda lewat WhatsApp secepatnya.</p>
+              </div>
+            @elseif(formStatus === 'invalid')
+              <div class="mb-6 flex items-start gap-3 rounded-2xl border border-danger/30 bg-danger/10 p-5">
+                <span class="icon-[tabler--alert-circle] size-5 text-danger shrink-0 mt-0.5"></span>
+                <p class="text-sm text-ink">Data belum lengkap atau tidak valid. Periksa nama, nomor WhatsApp, dan pesan (minimal 10 karakter), lalu kirim ulang.</p>
+              </div>
+            @elseif(formStatus === 'busy')
+              <div class="mb-6 flex items-start gap-3 rounded-2xl border border-warning/30 bg-warning/10 p-5">
+                <span class="icon-[tabler--clock] size-5 text-warning shrink-0 mt-0.5"></span>
+                <p class="text-sm text-ink">Terlalu banyak pesan dalam waktu singkat. Coba lagi beberapa menit lagi, atau hubungi kami lewat WhatsApp.</p>
+              </div>
+            @end
+
+            <form method="POST" action="/form/inquiry" class="rounded-2xl border border-border bg-white p-8 shadow-sm">
+              <input type="hidden" name="source" value="{{ request.path }}" />
+              {{-- Honeypot: hidden from people, bots tend to fill every field. --}}
+              <div class="hidden" aria-hidden="true">
+                <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <label class="block">
+                  <span class="text-sm font-medium text-ink">Nama <span class="text-danger">*</span></span>
+                  <input type="text" name="name" required minlength="2" maxlength="100" autocomplete="name" class="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20" placeholder="Nama lengkap Anda" />
+                </label>
+                <label class="block">
+                  <span class="text-sm font-medium text-ink">Nomor WhatsApp <span class="text-danger">*</span></span>
+                  <input type="tel" name="whatsapp" required inputmode="tel" autocomplete="tel" class="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20" placeholder="0812 3456 7890" />
+                </label>
+                <label class="block">
+                  <span class="text-sm font-medium text-ink">Email</span>
+                  <input type="email" name="email" maxlength="150" autocomplete="email" class="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20" placeholder="Opsional" />
+                </label>
+                <label class="block">
+                  <span class="text-sm font-medium text-ink">Nama Koperasi</span>
+                  <input type="text" name="organization" maxlength="150" class="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20" placeholder="Opsional" />
+                </label>
+              </div>
+
+              <label class="mt-5 block">
+                <span class="text-sm font-medium text-ink">Topik</span>
+                <select name="topic" class="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-ink focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+                  @each(t in inquiryTopics())
+                    <option value="{{ t.code }}" {{ t.code === 'LAINNYA' ? 'selected' : '' }}>{{ t.label }}</option>
+                  @end
+                </select>
+              </label>
+
+              <label class="mt-5 block">
+                <span class="text-sm font-medium text-ink">Pesan <span class="text-danger">*</span></span>
+                <textarea name="message" required minlength="10" maxlength="2000" rows="5" class="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20" placeholder="Ceritakan kondisi atau kendala koperasi Anda"></textarea>
+              </label>
+
+              <button type="submit" class="mt-6 inline-flex items-center gap-3 rounded-full bg-accent-amber pl-6 pr-2 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-accent-amber-dark">
+                Kirim Pesan
+                <span class="flex items-center justify-center size-8 rounded-full bg-white text-brand-navy">
+                  <span class="icon-[tabler--arrow-right] size-4"></span>
+                </span>
+              </button>
+            </form>
+          </div>
+
+          <aside class="rounded-2xl border border-border bg-surface p-8">
+            <h2 class="font-display font-bold text-xl text-ink">Atau Hubungi Langsung</h2>
+            <div class="mt-6 flex flex-col gap-5 text-sm">
+              <a href="{{ waLink(site.whatsapp, 'Halo Aloka, saya mau konsultasi') }}" class="flex items-start gap-3 text-ink-muted hover:text-brand-blue transition-colors">
+                <span class="icon-[tabler--brand-whatsapp] size-5 text-brand-blue shrink-0"></span>
+                <span><span class="block font-medium text-ink">WhatsApp</span>+{{ site.whatsapp }}</span>
+              </a>
+              <a href="mailto:{{ site.email }}" class="flex items-start gap-3 text-ink-muted hover:text-brand-blue transition-colors">
+                <span class="icon-[tabler--mail] size-5 text-brand-blue shrink-0"></span>
+                <span><span class="block font-medium text-ink">Email</span>{{ site.email }}</span>
+              </a>
+              @if(site.address)
+                <p class="flex items-start gap-3 text-ink-muted">
+                  <span class="icon-[tabler--map-pin] size-5 text-brand-blue shrink-0"></span>
+                  <span><span class="block font-medium text-ink">Alamat</span>{{ site.address }}</span>
+                </p>
+              @end
+            </div>
+
+            @if(site.instagram || site.youtube || site.linkedin)
+              <div class="mt-6 pt-6 border-t border-border flex items-center gap-3">
+                @if(site.instagram)
+                  <a href="{{ site.instagram }}" aria-label="Instagram" class="flex items-center justify-center size-10 rounded-full bg-white border border-border text-brand-blue hover:border-brand-blue/40 transition-colors"><span class="icon-[tabler--brand-instagram] size-5"></span></a>
+                @end
+                @if(site.youtube)
+                  <a href="{{ site.youtube }}" aria-label="YouTube" class="flex items-center justify-center size-10 rounded-full bg-white border border-border text-brand-blue hover:border-brand-blue/40 transition-colors"><span class="icon-[tabler--brand-youtube] size-5"></span></a>
+                @end
+                @if(site.linkedin)
+                  <a href="{{ site.linkedin }}" aria-label="LinkedIn" class="flex items-center justify-center size-10 rounded-full bg-white border border-border text-brand-blue hover:border-brand-blue/40 transition-colors"><span class="icon-[tabler--brand-linkedin] size-5"></span></a>
+                @end
+              </div>
+            @end
+          </aside>
+        </div>
+      </div>
+    </section>
+  @end
+@end

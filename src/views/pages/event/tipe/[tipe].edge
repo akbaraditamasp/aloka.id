@@ -1,0 +1,37 @@
+@let(activeType = eventTypes().find((t) => t.slug === params.tipe))
+@if(!activeType)
+  {{ abort(404) }}
+@end
+@let(currentPage = Math.max(1, Number(query.page) || 1))
+@let(result = await event.read({ filters: { status: 'PUBLISH', type: activeType.code, startAt: { $gte: new Date().toISOString() } }, sort: 'startAt', order: 'asc', page: currentPage, limit: 10 }))
+@component('layouts/main', { request })
+  @slot('title')
+    Jadwal {{ activeType.label }} Koperasi | Aloka
+  @end
+
+  @slot('main')
+    <section class="pt-10 md:pt-16 pb-10 md:pb-12">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <nav class="flex items-center gap-2 text-sm text-ink-muted">
+          <a href="/" class="hover:text-brand-blue transition-colors">Beranda</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <a href="/event" class="hover:text-brand-blue transition-colors">Event</a>
+          <span class="icon-[tabler--chevron-right] size-3.5"></span>
+          <span class="text-ink font-medium">{{ activeType.label }}</span>
+        </nav>
+
+        <div class="mt-8 max-w-2xl">
+          <span class="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-accent-amber-dark">Event</span>
+          <h1 class="mt-4 font-display font-extrabold text-4xl md:text-5xl leading-tight tracking-tight text-brand-navy">
+            Jadwal {{ activeType.label }} Koperasi
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-ink-muted">
+            Daftar {{ activeType.label.toLowerCase() }} Aloka yang akan datang — pilih jadwal yang sesuai dan daftar sebelum kuota penuh.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    @!component('components/event-catalog', { activeType, result, basePath: '/event/tipe/' + activeType.slug })
+  @end
+@end

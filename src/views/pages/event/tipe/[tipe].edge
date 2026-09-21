@@ -4,7 +4,7 @@
 @end
 @let(currentPage = Math.max(1, Number(query.page) || 1))
 @let(result = await event.read({ filters: { status: 'PUBLISH', type: activeType.code, startAt: { $gte: new Date().toISOString() } }, sort: 'startAt', order: 'asc', page: currentPage, limit: 10 }))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Jadwal ' + activeType.label.toLowerCase() + ' perkoperasian Aloka yang akan datang. Pilih jadwal dan daftar sebelum kuota penuh.' })
   @slot('title')
     Jadwal {{ activeType.label }} Koperasi | Aloka
   @end

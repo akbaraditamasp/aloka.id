@@ -1,7 +1,7 @@
 @let(site = await general.get())
 @let(svcRows = (await service.read({ filters: { category: 'LEGALITAS', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
 @let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Pengurusan legalitas koperasi: akta pendirian, SK Kemenkumham, NPWP, NIB, dan izin turunannya, dari nol sampai terbit.' })
   @slot('title')
     Legalitas Koperasi — Akta, SK, NPWP &amp; NIB | Aloka
   @end

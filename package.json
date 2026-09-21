@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "njin dev",
     "build": "njin build",
-    "start": "njin start"
+    "start": "njin start",
+    "seed": "bun run scripts/seed.ts"
   },
   "dependencies": {
     "@njinlabs/njin": "^0.10.3",

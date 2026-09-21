@@ -1,6 +1,6 @@
 @let(currentPage = Math.max(1, Number(query.page) || 1))
 @let(result = await event.read({ filters: { status: 'PUBLISH', startAt: { $gte: new Date().toISOString() } }, sort: 'startAt', order: 'asc', page: currentPage, limit: 10 }))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Jadwal webinar, workshop, dan pelatihan perkoperasian Aloka, online maupun tatap muka. Daftar sebelum kuota penuh.' })
   @slot('title')
     Jadwal Event, Webinar &amp; Pelatihan Koperasi | Aloka
   @end

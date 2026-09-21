@@ -5,7 +5,7 @@
 {{-- Icon + tint pairs are literal class strings (not built from data) so Tailwind's scanner sees them;
      schemes rotate through them by position. --}}
 @let(icons = [{ icon: 'icon-[tabler--report-money]', box: 'bg-brand-blue/10 text-brand-blue' }, { icon: 'icon-[tabler--users-group]', box: 'bg-success/10 text-success' }, { icon: 'icon-[tabler--file-analytics]', box: 'bg-accent-amber/10 text-accent-amber-dark' }])
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Sertifikasi kompetensi BNSP untuk pengurus, pengawas, dan pengelola keuangan koperasi. Aloka mendampingi dari persiapan sampai sertifikat terbit.' })
   @slot('title')
     Sertifikasi Kompetensi BNSP untuk Pengurus Koperasi | Aloka
   @end

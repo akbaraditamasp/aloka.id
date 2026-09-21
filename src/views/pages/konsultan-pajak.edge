@@ -1,6 +1,6 @@
 @let(site = await general.get())
 @let(serviceRows = (await service.read({ filters: { category: 'KONSULTAN_PAJAK', status: 'PUBLISH' }, sort: 'sortOrder', order: 'asc', limit: 50, populate: 'none' })).data)
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Konsultan pajak koperasi: pelaporan SPT, pajak SHU, PPN dan e-Faktur, sampai pendampingan pemeriksaan pajak.' })
   @slot('title')
     Konsultan Pajak Koperasi — Lapor &amp; Konsultasi Pajak | Aloka
   @end

@@ -1,7 +1,7 @@
 @let(site = await general.get())
 @let(svcRows = (await service.read({ filters: { category: 'KONSULTASI', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
 @let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Konsultasi koperasi bersama pendamping Aloka: ART, Persus, SOP, dan pendampingan pelaporan RAT. Konsultasi awal gratis.' })
   @slot('title')
     Konsultasi Koperasi — ART, Persus, SOP &amp; Pelaporan RAT | Aloka
   @end

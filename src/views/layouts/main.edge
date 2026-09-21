@@ -1,9 +1,36 @@
+{{-- Optional props: `description` (meta description) and `image` (absolute or site-relative OG image).
+     Both fall back to the `seo` vars. Canonical = siteUrl + path (+ ?page=N only for page 2+, so page 1
+     and the bare URL are one canonical). The 404 page renders with an empty request.path -> noindex. --}}
+@let(seoVars = await seo.get())
+@let(site = await general.get())
+@let(origin = site.siteUrl.replace(/\/+$/, ''))
+@let(pageTitle = (((await $slots.title?.()) || '').trim()) || seoVars.metaTitle)
+@let(pageDescription = (typeof description !== 'undefined' && description) ? description : seoVars.metaDescription)
+@let(pageImage = (typeof image !== 'undefined' && image) ? image : (seoVars.ogImage || '/hero.png'))
+@let(pageNumber = (request.url && Number(new URL(request.url).searchParams.get('page'))) || 1)
+@let(canonicalPath = request.path + (pageNumber > 1 ? '?page=' + pageNumber : ''))
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{{ await $slots.title?.() ?? 'Aloka — Koperasi Naik Kelas, Bareng Aloka' }}}</title>
+  <title>{{{ pageTitle }}}</title>
+  <meta name="description" content="{{ pageDescription }}" />
+  @if(request.path)
+    <link rel="canonical" href="{{ origin }}{{ canonicalPath }}" />
+  @else
+    <meta name="robots" content="noindex" />
+  @end
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:site_name" content="{{ site.siteName }}" />
+  <meta property="og:title" content="{{{ pageTitle }}}" />
+  <meta property="og:description" content="{{ pageDescription }}" />
+  @if(request.path)
+    <meta property="og:url" content="{{ origin }}{{ canonicalPath }}" />
+  @end
+  <meta property="og:image" content="{{ pageImage.startsWith('http') ? pageImage : origin + pageImage }}" />
+  <meta name="twitter:card" content="summary_large_image" />
   {{{ await vite.asset('src/client/app.css') }}}
   {{{ await vite.asset('src/client/main.ts') }}}
 </head>

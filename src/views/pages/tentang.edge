@@ -1,7 +1,7 @@
 @let(site = await general.get())
 @let(info = await about.get())
 @let(stat = await stats.get())
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: info.vision })
   @slot('title')
     Tentang Aloka — {{ site.tagline }} | Aloka
   @end

@@ -5,7 +5,7 @@
 @end
 @let(site = await general.get())
 @let(isPast = new Date(item.endAt || item.startAt).getTime() < Date.now())
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: item.summary })
   @slot('title')
     {{ item.title }} | Event Aloka
   @end

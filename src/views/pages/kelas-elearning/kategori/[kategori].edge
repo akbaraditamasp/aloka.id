@@ -4,7 +4,7 @@
 @end
 @let(currentPage = Math.max(1, Number(query.page) || 1))
 @let(result = await course.read({ filters: { status: 'PUBLISH', category: activeCategory.code }, sort: 'sortOrder', order: 'asc', page: currentPage, limit: 9 }))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Kelas e-learning perkoperasian bertema ' + activeCategory.label.toLowerCase() + '. Belajar kapan saja sesuai ritme Anda, dapatkan sertifikat setelah selesai.' })
   @slot('title')
     Kelas {{ activeCategory.label }} Koperasi | Aloka
   @end

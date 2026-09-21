@@ -4,7 +4,7 @@
   {{ abort(404) }}
 @end
 @let(site = await general.get())
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: item.name + ' — ' + item.title + ' di Aloka.' })
   @slot('title')
     {{ item.name }} — Fasilitator | Aloka
   @end

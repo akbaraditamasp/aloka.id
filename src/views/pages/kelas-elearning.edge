@@ -1,6 +1,6 @@
 @let(currentPage = Math.max(1, Number(query.page) || 1))
 @let(result = await course.read({ filters: { status: 'PUBLISH' }, sort: 'sortOrder', order: 'asc', page: currentPage, limit: 9 }))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Kelas e-learning perkoperasian: tata kelola, keuangan, legalitas, dan digitalisasi koperasi. Belajar kapan saja, dapatkan sertifikat setelah selesai.' })
   @slot('title')
     Kelas E-Learning Perkoperasian | Aloka
   @end

@@ -1,7 +1,7 @@
 @let(site = await general.get())
 @let(svcRows = (await service.read({ filters: { category: 'PEMBIAYAAN', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
 @let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Pendampingan pengajuan pembiayaan koperasi ke bank, program KUR, dan LPDB-KUMKM. Fee flat per paket, tanpa success fee.' })
   @slot('title')
     Pendampingan Akses Pembiayaan Koperasi | Aloka
   @end

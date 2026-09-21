@@ -5,6 +5,8 @@ const general = makeVars("general", {
   name: "Umum",
   schema: z.object({
     siteName: text({ label: "Nama Situs" }, (z) => z.default("Aloka")),
+    // Canonical origin for SEO (canonical tags, Open Graph, sitemap.xml) — no trailing slash needed.
+    siteUrl: text({ label: "URL Situs (mis. https://aloka.id)" }, (z) => z.default("https://aloka.id")),
     tagline: text({ label: "Tagline" }, (z) => z.default("Koperasi Naik Kelas, Bareng Aloka")),
     motto: text({ label: "Motto" }, (z) => z.default("Lebih Objektif, Kredibel & Akuntabel")),
     description: text(

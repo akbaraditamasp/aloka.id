@@ -67,7 +67,7 @@ export default defineConfig({
     // Listener files — imported here so their .listen() calls run at boot, e.g.:
     // () => import("./src/events/listeners/send_receipt"),
   ],
-  routes: [() => import("./src/routes/inquiry")],
+  routes: [() => import("./src/routes/inquiry"), () => import("./src/routes/seo")],
   plugins: [
     // Installable bundles of models/vars/hooks/events/routes, e.g.:
     // myPlugin({ apiKey: process.env.MY_PLUGIN_KEY! }),

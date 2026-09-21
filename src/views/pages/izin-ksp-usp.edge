@@ -1,7 +1,7 @@
 @let(site = await general.get())
 @let(svcRows = (await service.read({ filters: { category: 'IZIN_KSP_USP', status: 'PUBLISH' }, limit: 50, populate: 'none' })).data)
 @let(svc = Object.fromEntries(svcRows.map((s) => [s.slug, s])))
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Pendampingan izin operasional Koperasi Simpan Pinjam (KSP) dan Unit Simpan Pinjam (USP): UKK pengurus, SLIK OJK, dan surat keterangan tidak pailit.' })
   @slot('title')
     Izin Koperasi Simpan Pinjam / Unit Simpan Pinjam | Aloka
   @end

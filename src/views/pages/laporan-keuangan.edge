@@ -1,6 +1,6 @@
 @let(site = await general.get())
 @let(serviceRows = (await service.read({ filters: { category: 'LAPORAN_KEUANGAN', status: 'PUBLISH' }, sort: 'sortOrder', order: 'asc', limit: 50, populate: 'none' })).data)
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Jasa penyusunan laporan keuangan koperasi: pembukuan bulanan, laporan tahunan, penyajian SHU, dan laporan untuk pembiayaan.' })
   @slot('title')
     Laporan Keuangan Koperasi — Susun, Rapikan &amp; Siap Audit | Aloka
   @end

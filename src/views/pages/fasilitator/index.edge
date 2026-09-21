@@ -1,6 +1,6 @@
 @let(result = await facilitator.read({ filters: { status: 'PUBLISH' }, sort: 'sortOrder', order: 'asc', limit: 100 }))
 @let(site = await general.get())
-@component('layouts/main', { request })
+@component('layouts/main', { request, description: 'Kenali fasilitator dan konsultan Aloka: pelatih dan pendamping berpengalaman di bidang perkoperasian, keuangan, legalitas, dan pembiayaan.' })
   @slot('title')
     Fasilitator | Aloka
   @end
